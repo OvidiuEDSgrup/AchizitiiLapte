@@ -162,7 +162,7 @@ ALTER TABLE dbo.AL_Centre_colectare CHECK CONSTRAINT FK_AL_Centre_colectare_util
 GO
 
 IF NOT EXISTS (SELECT * FROM sys.check_constraints WHERE object_id = OBJECT_ID(N'dbo.CK_AL_Centre_colectare_localitate_sau_judet_completate') AND parent_object_id = OBJECT_ID(N'dbo.AL_Centre_colectare'))
-ALTER TABLE dbo.AL_Centre_colectare  WITH NOCHECK ADD  CONSTRAINT CK_AL_Centre_colectare_localitate_sau_judet_completate CHECK  ((coalesce(cod_localitate,nullif(rtrim(localitate),''),cod_judet,nullif(rtrim(judet),'')) IS NOT NULL))
+ALTER TABLE dbo.AL_Centre_colectare  WITH CHECK ADD  CONSTRAINT CK_AL_Centre_colectare_localitate_sau_judet_completate CHECK  ((coalesce(cod_localitate,nullif(rtrim(localitate),''),cod_judet,nullif(rtrim(judet),'')) IS NOT NULL))
 GO
 
 IF  EXISTS (SELECT * FROM sys.check_constraints WHERE object_id = OBJECT_ID(N'dbo.CK_AL_Centre_colectare_localitate_sau_judet_completate') AND parent_object_id = OBJECT_ID(N'dbo.AL_Centre_colectare'))
