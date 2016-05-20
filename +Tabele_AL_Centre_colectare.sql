@@ -1,3 +1,4 @@
+-- vim: syntax=sql
 /****** Object:  Table dbo.AL_Centre_colectare    Script Date: 5/18/2016 5:23:16 PM ******/
 SET ANSI_NULLS ON
 GO
