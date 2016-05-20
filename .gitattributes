@@ -1,1 +1,2 @@
-*.bat linguist-language=Java
+*.bat linguist-language=sql
+*/*.bat linguist-language=sql
