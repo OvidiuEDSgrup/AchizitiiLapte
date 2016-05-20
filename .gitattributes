@@ -1,2 +1,2 @@
 *.bat linguist-language=sql
-/*.bat linguist-language=sql
+*/*.bat linguist-language=sql
