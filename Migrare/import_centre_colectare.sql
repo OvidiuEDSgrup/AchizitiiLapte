@@ -1,4 +1,4 @@
---vim: syntax=java
+
 --INSERT INTO AL_Centre_colectare 
 --	(cod_centru_colectare,denumire,cod_IBAN,banca,sat,comuna,cod_localitate,localitate,cod_judet,judet,responsabil,loc_de_munca,tip_pers,subunit,tert,ruta,ord_ruta,data_operarii,operator)
 SELECT 
