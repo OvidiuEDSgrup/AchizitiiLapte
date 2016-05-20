@@ -1,0 +1,23 @@
+insert into AL_Centre_colectare
+select 
+id_centru	int	4
+cod_centru_colectare	varchar	36
+denumire	varchar	50
+cod_IBAN	varchar	30
+banca	varchar	20
+sat	varchar	30
+comuna	varchar	30
+cod_localitate	varchar	8
+localitate	varchar	30
+cod_judet	varchar	3
+judet	varchar	30
+responsabil	varchar	30
+loc_de_munca	varchar	9
+tip_pers	char	1
+subunit	varchar	9
+tert	varchar	13
+ruta	varchar	20
+ord_ruta	smallint	2
+data_operarii	datetime2	7
+operator	varchar	10
+from CentrColectLapte c
