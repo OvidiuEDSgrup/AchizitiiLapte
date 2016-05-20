@@ -1,0 +1,1 @@
+bcp AL.dbo.sysdiagrams OUT Achizitii_Lapte.bcp -c -T
