@@ -53,6 +53,8 @@ IF EXISTS (SELECT * FROM CentrColectLapte C LEFT JOIN Rute R ON R.codRuta = C.Ru
 	FROM Rute_lipsa R 
 	WHERE R.nr_aparitie = 1
 
+DELETE AL_Centre_colectare 
+DBCC CHECKIDENT(AL_Centre_colectare, reseed, 0)
 INSERT INTO AL_Centre_colectare 
 	(cod_centru_colectare,denumire,cod_IBAN,banca,sat,comuna,cod_localitate,cod_judet,cod_tara,responsabil,loc_de_munca,tip_pers,subunit,tert,cod_ruta,ord_ruta,data_operarii,operator,detalii)
 SELECT 
