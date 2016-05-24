@@ -17,7 +17,7 @@ IF EXISTS (SELECT * FROM CentrColectLapte C LEFT JOIN Terti T ON T.Tert = C.Tert
 	WITH Terti_lipsa AS (	
 		SELECT RTRIM(C.Tert) AS cod, RTRIM(C.Tert)+' IMPL' AS den,
 			nr_aparitie = ROW_NUMBER() OVER(PARTITION BY C.Tert ORDER BY C.Tert DESC)
-		FROM CentrColectLapte C --LEFT JOIN (VALUES ('IMPL','IMPL')) A(cod, denumire) ON RTRIM(C.Utilizator) = ''
+		FROM CentrColectLapte C 
 			LEFT JOIN Terti T ON T.Tert = C.Tert AND T.Subunitate = '1' 
 		WHERE C.tert <> '' AND T.tert IS NULL
 		) 
@@ -31,7 +31,7 @@ IF EXISTS (SELECT * FROM CentrColectLapte C LEFT JOIN Lm L ON L.cod = C.Loc_de_m
 	WITH Lm_lipsa AS (	
 		SELECT RTRIM(C.Loc_de_munca) AS cod, RTRIM(C.Loc_de_munca)+' IMPL' AS den,
 			nr_aparitie = ROW_NUMBER() OVER(PARTITION BY C.loc_de_munca ORDER BY C.loc_de_munca DESC)
-		FROM CentrColectLapte C --LEFT JOIN (VALUES ('IMPL','IMPL')) A(cod, denumire) ON RTRIM(C.Utilizator) = ''
+		FROM CentrColectLapte C 
 			LEFT JOIN Lm L ON L.Cod = C.Loc_de_munca 
 		WHERE C.Loc_de_munca <> '' AND L.Cod IS NULL
 		) 
@@ -40,8 +40,21 @@ IF EXISTS (SELECT * FROM CentrColectLapte C LEFT JOIN Lm L ON L.cod = C.Loc_de_m
 	FROM Lm_lipsa L LEFT JOIN Strlm S ON S.Lungime = LEN(L.cod)
 	WHERE L.nr_aparitie = 1
 
+IF EXISTS (SELECT * FROM CentrColectLapte C LEFT JOIN Rute R ON R.codRuta = C.Ruta WHERE C.Loc_de_munca <> '' AND R.codRuta IS NULL)
+	WITH Rute_lipsa AS (	
+		SELECT RTRIM(C.Ruta) AS cod, RTRIM(C.Ruta)+' IMPL' AS den,
+			nr_aparitie = ROW_NUMBER() OVER(PARTITION BY C.ruta ORDER BY C.ruta DESC)
+		FROM CentrColectLapte C 
+			LEFT JOIN Rute R ON R.codRuta = C.Ruta 
+		WHERE C.Ruta <> '' AND R.codRuta IS NULL
+		) 
+	INSERT INTO Rute (codRuta, denumire, descriere, detalii)
+	SELECT R.cod AS Cod, R.den AS Denumire, R.den AS descriere, NULL AS detalii
+	FROM Rute_lipsa R 
+	WHERE R.nr_aparitie = 1
+
 INSERT INTO AL_Centre_colectare 
-	(cod_centru_colectare,denumire,cod_IBAN,banca,sat,comuna,cod_localitate,localitate,cod_judet,judet,cod_tara,responsabil,loc_de_munca,tip_pers,subunit,tert,ruta,ord_ruta,data_operarii,operator)
+	(cod_centru_colectare,denumire,cod_IBAN,banca,sat,comuna,cod_localitate,cod_judet,cod_tara,responsabil,loc_de_munca,tip_pers,subunit,tert,cod_ruta,ord_ruta,data_operarii,operator,detalii)
 SELECT 
 	cod_centru_colectare = c.cod_centru_colectare, --	varchar	36
 	denumire = c.denumire, --	varchar	50
@@ -50,19 +63,18 @@ SELECT
 	sat = c.sat, --	varchar	30
 	comuna = c.comuna, --	varchar	30
 	cod_localitate = L.cod_oras, --	varchar	8
-	localitate = c.localitate, --	varchar	30
 	cod_judet = j.cod_judet, --	varchar	3
-	judet = c.judet, --	varchar	30
 	cod_tara = T.cod_tara, --	varchar	3
 	responsabil = c.responsabil, --	varchar	30
 	loc_de_munca = NULLIF(c.loc_de_munca,''), --	varchar	9
 	tip_pers = (CASE c.tip_pers WHEN '' THEN 'F' ELSE c.Tip_pers END), --	char	1
 	subunit = '1', --	varchar	9
 	tert = NULLIF(c.tert, ''), --	varchar	13
-	ruta = c.ruta, --	varchar	20
+	cod_ruta = NULLIF(c.ruta, ''), --	varchar	20
 	ord_ruta = c.ord_ruta, --	smallint	2
 	data_operarii = c.data_operarii, --	datetime2	7
-	operator = NULLIF(c.Utilizator,'') --	varchar	10
+	operator = NULLIF(c.Utilizator,''), --	varchar	10
+	detalii = (SELECT NULLIF(RTRIM(C.localitate),'') AS localitate, NULLIF(RTRIM(C.judet), '') AS judet, NULLIF(RTRIM(C.Ruta),'') AS ruta FOR XML RAW, TYPE)
 FROM CentrColectLapte AS C 	
 	OUTER APPLY (SELECT TOP (1) L.cod_oras, L.cod_judet FROM Localitati L WHERE L.cod_oras=c.Localitate OR L.oras LIKE RTRIM(C.Localitate)+'%' 
 		ORDER BY (CASE WHEN L.cod_oras=C.Localitate THEN 0 ELSE 1 END)) AS L
