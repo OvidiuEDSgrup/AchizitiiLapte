@@ -76,7 +76,7 @@ SELECT
 	ord_ruta = c.ord_ruta, --	smallint	2
 	data_operarii = c.data_operarii, --	datetime2	7
 	operator = NULLIF(c.Utilizator,''), --	varchar	10
-	detalii = (SELECT NULLIF(RTRIM(C.localitate),'') AS localitate, NULLIF(RTRIM(C.judet), '') AS judet, NULLIF(RTRIM(C.Ruta),'') AS ruta FOR XML RAW, TYPE)
+	detalii = (SELECT NULLIF(RTRIM(C.localitate),'') AS loc, NULLIF(RTRIM(C.judet), '') AS jud, NULLIF(RTRIM(C.Ruta),'') AS ruta FOR XML RAW, TYPE)
 FROM CentrColectLapte AS C 	
 	OUTER APPLY (SELECT TOP (1) L.cod_oras, L.cod_judet FROM Localitati L WHERE L.cod_oras=c.Localitate OR L.oras LIKE RTRIM(C.Localitate)+'%' 
 		ORDER BY (CASE WHEN L.cod_oras=C.Localitate THEN 0 ELSE 1 END)) AS L
