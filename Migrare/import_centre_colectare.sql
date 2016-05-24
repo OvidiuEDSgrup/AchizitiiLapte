@@ -85,4 +85,6 @@ FROM CentrColectLapte AS C
 	OUTER APPLY (SELECT TOP (1) cod_tara FROM Tari T WHERE T.cod_tara=C.Judet OR T.denumire LIKE RTRIM(C.Judet)+'%' 
 		ORDER BY (CASE WHEN T.cod_tara=C.Judet THEN 0 ELSE 1 END)) AS T
 	LEFT JOIN Utilizatori U ON U.ID = C.Utilizator
+WHERE c.Cod_centru_colectare <> ''
+ORDER BY cod_centru_colectare
 --WHERE j.cod_judet IS NULL
