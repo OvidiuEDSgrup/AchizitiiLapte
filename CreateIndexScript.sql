@@ -64,7 +64,7 @@ FROM sys.indexes I
    WHERE IncludedColumns IS NOT NULL ) tmp2   
 ON tmp2.object_id = I.object_id AND tmp2.index_id = I.index_id  
 WHERE I.is_primary_key = 0 AND I.is_unique_constraint = 0
-AND I.Object_id = object_id('dbo.rute') --Comment for all tables
+AND I.Object_id = object_id('dbo.localitati') --Comment for all tables
 --AND I.name = 'IX_Address_PostalCode' --comment for all indexes
 
 
