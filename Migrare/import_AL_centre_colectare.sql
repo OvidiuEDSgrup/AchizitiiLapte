@@ -56,7 +56,7 @@ IF EXISTS (SELECT * FROM CentrColectLapte C LEFT JOIN Rute R ON R.codRuta = C.Ru
 DELETE AL_Centre_colectare 
 DBCC CHECKIDENT(AL_Centre_colectare, reseed, 0)
 INSERT INTO AL_Centre_colectare 
-	(cod_centru_colectare,denumire,cod_IBAN,banca,sat,comuna,cod_localitate,cod_judet,cod_tara,responsabil,loc_de_munca,tip_pers,subunit,tert,cod_ruta,ord_ruta,data_operarii,operator,detalii)
+	(cod_centru_colectare,denumire,cod_IBAN,banca,sat,comuna,cod_loc,cod_jud,cod_tara,responsabil,loc_munca,tip_pers,subunit,tert,cod_ruta,ord_ruta,data_operarii,operator,detalii)
 SELECT 
 	cod_centru_colectare = c.cod_centru_colectare, --	varchar	36
 	denumire = c.denumire, --	varchar	50
@@ -64,7 +64,7 @@ SELECT
 	banca = c.banca, --	varchar	20
 	sat = c.sat, --	varchar	30
 	comuna = c.comuna, --	varchar	30
-	cod_localitate = L.cod_oras, --	varchar	8
+	cod_loc = L.cod_oras, --	varchar	8
 	cod_judet = j.cod_judet, --	varchar	3
 	cod_tara = T.cod_tara, --	varchar	3
 	responsabil = c.responsabil, --	varchar	30
