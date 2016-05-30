@@ -1,3 +1,4 @@
+/****** Object:  Table [dbo].[AL_Centre_colectare]    Script Date: 5/30/2016 5:43:52 PM ******/
 SET ANSI_NULLS ON
 GO
 
