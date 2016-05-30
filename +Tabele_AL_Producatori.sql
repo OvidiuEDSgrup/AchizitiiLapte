@@ -1,4 +1,3 @@
-/****** Object:  Table [dbo].[AL_Producatori]    Script Date: 5/30/2016 5:44:07 PM ******/
 SET ANSI_NULLS ON
 GO
 
