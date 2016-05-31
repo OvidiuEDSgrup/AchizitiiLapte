@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[AL_Grila_pret_centre_colectare]    Script Date: 5/31/2016 3:36:31 PM ******/
+ /****** Object:  Table [dbo].[AL_Grila_pret_centre_colectare]    Script Date: 5/31/2016 3:36:31 PM ******/
 SET ANSI_NULLS ON
 GO
 
