@@ -54,56 +54,56 @@ IF EXISTS (SELECT * FROM ProdLapte P LEFT JOIN AL_Centre_colectare C ON C.Cod_ce
 	WHERE R.nr_aparitie = 1
 
 DELETE AL_Producatori 
-DBCC CHECKIDENT(AL_Producatori, reseed, 0)
+--DBCC CHECKIDENT(AL_Producatori, reseed, 0)
+ALTER SEQUENCE AL_Producatori_id_prod RESTART WITH 1
 INSERT INTO AL_Producatori 
 	(cod_prod,denumire,initiala_tata,CNP_CUI,serie_BI,nr_BI,elib_BI,cod_jud,cod_loc,cod_tara,comuna,sat,strada,nr_str,nr_casa,bloc,scara,etaj,ap,cod_exploatatie,cota_actuala,grad_actual,nr_contr,data_contr,valabil_contr,cant_contr,nr_vaci,grupa,pret,bonus,tip_pers,subunit,tert,reprezentant,CNP_repr,id_centru,centru_colectare,loc_munca,DACL,tip_furnizor,cont_banca,banca,data_operarii,operator,detalii)
 SELECT 
-p.id_prod AS id_prod, -- int	4	10   
-p.cod_prod AS cod_prod, -- varchar	36	     
-p.denumire AS denumire, -- varchar	50	     
-p.initiala_tata AS initiala_tata, -- char	1	     
-p.CNP_CUI AS CNP_CUI, -- varchar	15	     
-p.serie_BI AS serie_BI, -- char	2	     
-p.nr_BI AS nr_BI, -- char	7	     
-p.elib_BI AS elib_BI, -- varchar	20	     
-p.cod_jud AS cod_jud, -- varchar	3	     
-p.cod_loc AS cod_loc, -- varchar	8	     
-p.cod_tara AS cod_tara, -- varchar	3	     
-p.comuna AS comuna, -- varchar	30	     
-p.sat AS sat, -- varchar	30	     
-p.strada AS strada, -- varchar	30	     
-p.nr_str AS nr_str, -- varchar	5	     
-p.nr_casa AS nr_casa, -- varchar	10	     
-p.bloc AS bloc, -- varchar	10	     
-p.scara AS scara, -- varchar	10	     
-p.etaj AS etaj, -- varchar	10	     
-p.ap AS ap, -- varchar	5	     
-p.cod_exploatatie AS cod_exploatatie, -- varchar	15	     
-p.cota_actuala AS cota_actuala, -- decimal	9	12   
-p.grad_actual AS grad_actual, -- decimal	5	7    
-p.nr_contr AS nr_contr, -- varchar	20	     
-p.data_contr AS data_contr, -- datetime2	6	19   
-p.valabil_contr AS valabil_contr, -- datetime2	6	19   
-p.cant_contr AS cant_contr, -- decimal	9	12   
-p.nr_vaci AS nr_vaci, -- smallint	2	5    
-p.grupa AS grupa, -- char	1	     
-p.pret AS pret, -- decimal	9	12   
-p.bonus AS bonus, -- tinyint	1	3    
-p.tip_pers AS tip_pers, -- char	1	     
-p.subunit AS subunit, -- varchar	9	     
-p.tert AS tert, -- varchar	13	     
-p.reprezentant AS reprezentant, -- varchar	30	     
-p.CNP_repr AS CNP_repr, -- varchar	13	     
-p.id_centru AS id_centru, -- int	4	10   
-p.centru_colectare AS centru_colectare, -- varchar	9	     
-p.loc_munca AS loc_munca, -- varchar	9	     
-p.DACL AS DACL, -- tinyint	1	3    
-p.tip_furnizor AS tip_furnizor, -- char	1	     
-p.cont_banca AS cont_banca, -- varchar	35	     
-p.banca AS banca, -- varchar	20	     
-p.data_operarii AS data_operarii, -- datetime2	7	23   
-p.operator AS operator, -- varchar	10	     
-p.detalii AS detalii -- xml	-1	     
+	RTRIM(P.Cod_producator) AS cod_prod, -- varchar	36	     
+	P.denumire AS denumire, -- varchar	50	     
+	P.Initiala_tatalui AS initiala_tata, -- char	1	     
+	P.CNP_CUI AS CNP_CUI, -- varchar	15	     
+	P.Serie_buletin AS serie_BI, -- char	2	     
+	P.Nr_buletin AS nr_BI, -- char	7	     
+	P.Eliberat AS elib_BI, -- varchar	20	     
+	P.cod_jud AS cod_jud, -- varchar	3	     
+	P.cod_loc AS cod_loc, -- varchar	8	     
+	P.cod_tara AS cod_tara, -- varchar	3	     
+	P.comuna AS comuna, -- varchar	30	     
+	P.sat AS sat, -- varchar	30	     
+	P.strada AS strada, -- varchar	30	     
+	P.nr_str AS nr_str, -- varchar	5	     
+	P.nr_casa AS nr_casa, -- varchar	10	     
+	P.bloc AS bloc, -- varchar	10	     
+	P.scara AS scara, -- varchar	10	     
+	P.etaj AS etaj, -- varchar	10	     
+	P.ap AS ap, -- varchar	5	     
+	P.cod_exploatatie AS cod_exploatatie, -- varchar	15	     
+	P.cota_actuala AS cota_actuala, -- decimal	9	12   
+	P.grad_actual AS grad_actual, -- decimal	5	7    
+	P.nr_contr AS nr_contr, -- varchar	20	     
+	P.data_contr AS data_contr, -- datetime2	6	19   
+	P.valabil_contr AS valabil_contr, -- datetime2	6	19   
+	P.cant_contr AS cant_contr, -- decimal	9	12   
+	P.Vaci AS nr_vaci, -- smallint	2	5    
+	P.grupa AS grupa, -- char	1	     
+	P.pret AS pret, -- decimal	9	12   
+	P.bonus AS bonus, -- tinyint	1	3    
+	P.tip_pers AS tip_pers, -- char	1	     
+	'1' AS subunit, -- varchar	9	     
+	P.tert AS tert, -- varchar	13	     
+	P.reprezentant AS reprezentant, -- varchar	30	     
+	P.CNP_repr AS CNP_repr, -- varchar	13	     
+	P.id_centru AS id_centru, -- int	4	10   
+	P.centru_colectare AS centru_colectare, -- varchar	9	     
+	P.Loc_de_munca AS loc_munca, -- varchar	9	     
+	P.DACL AS DACL, -- tinyint	1	3    
+	P.tip_furnizor AS tip_furnizor, -- char	1	     
+	P.cont_banca AS cont_banca, -- varchar	35	     
+	P.banca AS banca, -- varchar	20	     
+	P.data_operarii AS data_operarii, -- datetime2	7	23   
+	P.Utilizator AS operator, -- varchar	10	     
+	(SELECT NULLIF(RTRIM(C.localitate),'') AS loc, NULLIF(RTRIM(C.judet), '') AS jud, NULLIF(RTRIM(C.Ruta),'') AS ruta FOR XML RAW, TYPE) AS detalii -- xml	-1	     
 --cod_centru_colectare = c.cod_centru_colectare, --	varchar	36
 --denumire = c.denumire, --	varchar	50
 --cod_IBAN = c.cod_IBAN, --	varchar	30
@@ -132,5 +132,5 @@ FROM ProdLapte AS P
 		ORDER BY (CASE WHEN T.cod_tara=P.Judet THEN 0 ELSE 1 END)) AS T
 	LEFT JOIN Utilizatori U ON U.ID = P.Utilizator
 WHERE P.Cod_producator <> ''
-ORDER BY cod_centru_colectare
+ORDER BY P.Cod_producator
 --WHERE j.cod_judet IS NULL
