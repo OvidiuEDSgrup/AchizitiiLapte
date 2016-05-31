@@ -54,9 +54,10 @@ IF EXISTS (SELECT * FROM CentrColectLapte C LEFT JOIN Rute R ON R.codRuta = C.Ru
 	WHERE R.nr_aparitie = 1
 
 DELETE AL_Centre_colectare 
-DBCC CHECKIDENT(AL_Centre_colectare, reseed, 0)
+--DBCC CHECKIDENT(AL_Centre_colectare, reseed, 0)
+ALTER SEQUENCE AL_Centre_colectare_id_centru RESTART WITH 1
 INSERT INTO AL_Centre_colectare 
-	(cod_centru_colectare,denumire,cod_IBAN,banca,sat,comuna,cod_loc,cod_jud,cod_tara,responsabil,loc_munca,tip_pers,subunit,tert,cod_ruta,ord_ruta,data_operarii,operator,detalii)
+	(cod_centru,denumire,cod_IBAN,banca,sat,comuna,cod_loc,cod_jud,cod_tara,responsabil,loc_munca,tip_pers,subunit,tert,cod_ruta,ord_ruta,data_operarii,operator,detalii)
 SELECT 
 	cod_centru_colectare = c.cod_centru_colectare, --	varchar	36
 	denumire = c.denumire, --	varchar	50
@@ -88,3 +89,4 @@ FROM CentrColectLapte AS C
 WHERE c.Cod_centru_colectare <> ''
 ORDER BY cod_centru_colectare
 --WHERE j.cod_judet IS NULL
+SELECT * FROM AL_Centre_colectare

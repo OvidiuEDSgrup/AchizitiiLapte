@@ -1,3 +1,4 @@
+/****** Object:  Table [dbo].[AL_Producatori]    Script Date: 5/31/2016 11:02:09 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -10,7 +11,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AL_Producatori]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[AL_Producatori](
-	[id_prod] [int] IDENTITY(1,1) NOT NULL,
+	[id_prod] [int] NOT NULL,
 	[cod_prod] [varchar](36) NOT NULL,
 	[denumire] [varchar](50) NOT NULL,
 	[initiala_tata] [char](1) NOT NULL,
@@ -71,7 +72,7 @@ SET ANSI_PADDING ON
 
 GO
 
-/****** Object:  Index [Denumire]    Script Date: 5/30/2016 5:44:07 PM ******/
+/****** Object:  Index [Denumire]    Script Date: 5/31/2016 11:02:09 AM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[AL_Producatori]') AND name = N'Denumire')
 CREATE NONCLUSTERED INDEX [Denumire] ON [dbo].[AL_Producatori]
 (
@@ -83,12 +84,19 @@ SET ANSI_PADDING ON
 
 GO
 
-/****** Object:  Index [Unic_AL_Producatori]    Script Date: 5/30/2016 5:44:07 PM ******/
+/****** Object:  Index [Unic_AL_Producatori]    Script Date: 5/31/2016 11:02:09 AM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[AL_Producatori]') AND name = N'Unic_AL_Producatori')
 CREATE UNIQUE NONCLUSTERED INDEX [Unic_AL_Producatori] ON [dbo].[AL_Producatori]
 (
 	[cod_prod] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_AL_Producatori_id_prod]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[AL_Producatori] ADD  CONSTRAINT [DF_AL_Producatori_id_prod]  DEFAULT (NEXT VALUE FOR [AL_Producatori_id_prod]) FOR [id_prod]
+END
+
 GO
 
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_AL_Producatori_cod_prod]') AND type = 'D')
