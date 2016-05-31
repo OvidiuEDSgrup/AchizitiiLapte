@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[AL_Producatori]    Script Date: 5/31/2016 11:02:09 AM ******/
+/****** Object:  Table [dbo].[AL_Producatori]    Script Date: 5/31/2016 3:26:27 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,8 +11,8 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AL_Producatori]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[AL_Producatori](
-	[id_prod] [int] NOT NULL,
-	[cod_prod] [varchar](36) NOT NULL,
+	[id_prod] [int] NOT NULL CONSTRAINT [DF_AL_Producatori_id_prod]  DEFAULT (NEXT VALUE FOR [AL_Producatori_id_prod]),
+	[cod_prod] [varchar](36) NOT NULL CONSTRAINT [DF_AL_Producatori_cod_prod]  DEFAULT (newid()),
 	[denumire] [varchar](50) NOT NULL,
 	[initiala_tata] [char](1) NOT NULL,
 	[CNP_CUI] [varchar](15) NOT NULL,
@@ -34,17 +34,17 @@ CREATE TABLE [dbo].[AL_Producatori](
 	[cod_exploatatie] [varchar](15) NOT NULL,
 	[cota_actuala] [decimal](12, 2) NOT NULL,
 	[grad_actual] [decimal](7, 3) NOT NULL,
-	[nr_contr] [varchar](20) NOT NULL,
-	[data_contr] [datetime2](0) NOT NULL,
-	[valabil_contr] [datetime2](0) NOT NULL,
+	[nr_contr] [varchar](20) NULL,
+	[data_contr] [datetime2](0) NULL,
+	[valabil_contr] [datetime2](0) NULL,
 	[cant_contr] [decimal](12, 2) NOT NULL,
 	[nr_vaci] [smallint] NOT NULL,
 	[grupa] [char](1) NOT NULL,
 	[pret] [decimal](12, 2) NOT NULL,
 	[bonus] [tinyint] NOT NULL,
 	[tip_pers] [char](1) NOT NULL,
-	[subunit] [varchar](9) NOT NULL,
-	[tert] [varchar](13) NOT NULL,
+	[subunit] [varchar](9) NULL CONSTRAINT [DF_AL_Producatori_subunitate]  DEFAULT ('1'),
+	[tert] [varchar](13) NULL,
 	[reprezentant] [varchar](30) NOT NULL,
 	[CNP_repr] [varchar](13) NOT NULL,
 	[id_centru] [int] NULL,
@@ -52,10 +52,10 @@ CREATE TABLE [dbo].[AL_Producatori](
 	[loc_munca] [varchar](9) NOT NULL,
 	[DACL] [tinyint] NOT NULL,
 	[tip_furnizor] [char](1) NOT NULL,
-	[cont_banca] [varchar](35) NOT NULL,
+	[cont_banca] [varchar](35) NOT NULL CONSTRAINT [DF_ProdLapte_Cont_banca]  DEFAULT (''),
 	[banca] [varchar](20) NOT NULL,
 	[data_operarii] [datetime2](3) NOT NULL,
-	[operator] [varchar](10) NOT NULL,
+	[operator] [varchar](10) NULL,
 	[detalii] [xml] NULL,
  CONSTRAINT [PK_AL_Producatori] PRIMARY KEY CLUSTERED 
 (
@@ -72,7 +72,7 @@ SET ANSI_PADDING ON
 
 GO
 
-/****** Object:  Index [Denumire]    Script Date: 5/31/2016 11:02:09 AM ******/
+/****** Object:  Index [Denumire]    Script Date: 5/31/2016 3:26:27 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[AL_Producatori]') AND name = N'Denumire')
 CREATE NONCLUSTERED INDEX [Denumire] ON [dbo].[AL_Producatori]
 (
@@ -84,40 +84,12 @@ SET ANSI_PADDING ON
 
 GO
 
-/****** Object:  Index [Unic_AL_Producatori]    Script Date: 5/31/2016 11:02:09 AM ******/
+/****** Object:  Index [Unic_AL_Producatori]    Script Date: 5/31/2016 3:26:27 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[AL_Producatori]') AND name = N'Unic_AL_Producatori')
 CREATE UNIQUE NONCLUSTERED INDEX [Unic_AL_Producatori] ON [dbo].[AL_Producatori]
 (
 	[cod_prod] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_AL_Producatori_id_prod]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[AL_Producatori] ADD  CONSTRAINT [DF_AL_Producatori_id_prod]  DEFAULT (NEXT VALUE FOR [AL_Producatori_id_prod]) FOR [id_prod]
-END
-
-GO
-
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_AL_Producatori_cod_prod]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[AL_Producatori] ADD  CONSTRAINT [DF_AL_Producatori_cod_prod]  DEFAULT (newid()) FOR [cod_prod]
-END
-
-GO
-
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_AL_Producatori_subunitate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[AL_Producatori] ADD  CONSTRAINT [DF_AL_Producatori_subunitate]  DEFAULT ('1') FOR [subunit]
-END
-
-GO
-
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ProdLapte_Cont_banca]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[AL_Producatori] ADD  CONSTRAINT [DF_ProdLapte_Cont_banca]  DEFAULT ('') FOR [cont_banca]
-END
-
 GO
 
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_AL_Producatori_AL_Centre_colectare]') AND parent_object_id = OBJECT_ID(N'[dbo].[AL_Producatori]'))

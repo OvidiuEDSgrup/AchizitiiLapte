@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[AL_Centre_colectare]    Script Date: 5/31/2016 11:01:57 AM ******/
+/****** Object:  Table [dbo].[AL_Centre_colectare]    Script Date: 5/31/2016 3:26:16 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -46,7 +46,7 @@ SET ANSI_PADDING ON
 
 GO
 
-/****** Object:  Index [Denumire]    Script Date: 5/31/2016 11:01:57 AM ******/
+/****** Object:  Index [Denumire]    Script Date: 5/31/2016 3:26:16 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[AL_Centre_colectare]') AND name = N'Denumire')
 CREATE NONCLUSTERED INDEX [Denumire] ON [dbo].[AL_Centre_colectare]
 (
@@ -58,7 +58,7 @@ SET ANSI_PADDING ON
 
 GO
 
-/****** Object:  Index [Loc_munca]    Script Date: 5/31/2016 11:01:57 AM ******/
+/****** Object:  Index [Loc_munca]    Script Date: 5/31/2016 3:26:16 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[AL_Centre_colectare]') AND name = N'Loc_munca')
 CREATE NONCLUSTERED INDEX [Loc_munca] ON [dbo].[AL_Centre_colectare]
 (
@@ -71,7 +71,7 @@ SET ANSI_PADDING ON
 
 GO
 
-/****** Object:  Index [Ordine_ruta]    Script Date: 5/31/2016 11:01:57 AM ******/
+/****** Object:  Index [Ordine_ruta]    Script Date: 5/31/2016 3:26:16 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[AL_Centre_colectare]') AND name = N'Ordine_ruta')
 CREATE NONCLUSTERED INDEX [Ordine_ruta] ON [dbo].[AL_Centre_colectare]
 (
@@ -85,7 +85,7 @@ SET ANSI_PADDING ON
 
 GO
 
-/****** Object:  Index [Unic_AL_Centre_colectare]    Script Date: 5/31/2016 11:01:57 AM ******/
+/****** Object:  Index [Unic_AL_Centre_colectare]    Script Date: 5/31/2016 3:26:16 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[AL_Centre_colectare]') AND name = N'Unic_AL_Centre_colectare')
 CREATE UNIQUE NONCLUSTERED INDEX [Unic_AL_Centre_colectare] ON [dbo].[AL_Centre_colectare]
 (
