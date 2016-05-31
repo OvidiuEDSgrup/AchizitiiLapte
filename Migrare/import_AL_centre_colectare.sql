@@ -87,6 +87,36 @@ FROM CentrColectLapte AS C
 		ORDER BY (CASE WHEN T.cod_tara=C.Judet THEN 0 ELSE 1 END)) AS T
 	LEFT JOIN Utilizatori U ON U.ID = C.Utilizator
 WHERE c.Cod_centru_colectare <> ''
-ORDER BY cod_centru_colectare
---WHERE j.cod_judet IS NULL
-SELECT * FROM AL_Centre_colectare
+ORDER BY cod_centru_colectare;
+
+WITH Centre_lipsa AS (	
+	SELECT RTRIM(P.Centru_colectare) AS cod, RTRIM(P.Centru_colectare)+' IMPL' AS den,
+		nr_aparitie = ROW_NUMBER() OVER(PARTITION BY P.centru_colectare ORDER BY P.centru_colectare DESC)
+	FROM ProdLapte P 
+		LEFT JOIN AL_Centre_colectare C ON C.cod_centru = P.Centru_colectare
+	WHERE P.Centru_colectare <> '' AND C.cod_centru IS NULL
+	) 
+INSERT INTO AL_Centre_colectare 
+	(cod_centru,denumire,cod_IBAN,banca,sat,comuna,cod_loc,cod_jud,cod_tara,responsabil,loc_munca,tip_pers,subunit,tert,cod_ruta,ord_ruta,data_operarii,operator,detalii)
+SELECT 
+	cod_centru_colectare = c.cod, --	varchar	36
+	denumire = c.den, --	varchar	50
+	cod_IBAN = '', --	varchar	30
+	banca = '', --	varchar	20
+	sat = '', --	varchar	30
+	comuna = '', --	varchar	30
+	cod_loc = NULL, --	varchar	8
+	cod_judet = NULL, --	varchar	3
+	cod_tara = NULL, --	varchar	3
+	responsabil = '', --	varchar	30
+	loc_de_munca = NULL, --	varchar	9
+	tip_pers = 'F', --	char	1
+	subunit = NULL, --	varchar	9
+	tert = NULL, --	varchar	13
+	cod_ruta = NULL, --	varchar	20
+	ord_ruta = 0, --	smallint	2
+	data_operarii = GETDATE(), --	datetime2	7
+	operator = 'IMPL', --	varchar	10
+	detalii = NULL
+FROM Centre_lipsa AS C
+WHERE C.nr_aparitie = 1
