@@ -40,15 +40,15 @@ IF EXISTS (SELECT * FROM ProdLapte C LEFT JOIN Lm L ON L.cod = C.Loc_de_munca WH
 	FROM Lm_lipsa L LEFT JOIN Strlm S ON S.Lungime = LEN(L.cod)
 	WHERE L.nr_aparitie = 1
 	
---DELETE AL_Producatori 
+DELETE AL_Producatori 
 --DBCC CHECKIDENT(AL_Producatori, reseed, 0)
---ALTER SEQUENCE AL_Producatori_id_prod RESTART WITH 1
-SET ANSI_WARNINGS OFF
---INSERT INTO AL_Producatori (cod_prod,denumire,initiala_tata,CNP_CUI,serie_BI,nr_BI,elib_BI,cod_jud,cod_loc,cod_tara,comuna,sat,strada,nr_str,nr_casa,bloc,scara,etaj,ap,cod_exploatatie,cota_actuala,grad_actual,nr_contr,data_contr,valabil_contr,cant_contr,nr_vaci,grupa,pret,bonus,tip_pers,subunit,tert,reprezentant,CNP_repr,id_centru,centru_colectare,loc_munca,DACL,tip_furnizor,cont_banca,banca,data_operarii,operator,detalii) 
+ALTER SEQUENCE AL_Producatori_id_prod RESTART WITH 1
+SET ANSI_WARNINGS ON
+INSERT INTO AL_Producatori (cod_prod,denumire,initiala_tata,CNP_CUI,serie_BI,nr_BI,elib_BI,cod_jud,cod_loc,cod_tara,comuna,sat,strada,nr_str,nr_casa,bloc,scara,etaj,ap,cod_exploatatie,cota_actuala,grad_actual,nr_contr,data_contr,valabil_contr,cant_contr,nr_vaci,grupa,pret,bonus,tip_pers,subunit,tert,reprezentant,CNP_repr,id_centru,centru_colectare,loc_munca,DACL,tip_furnizor,cont_banca,banca,data_operarii,operator,detalii) 
 SELECT 
 	RTRIM(P.Cod_producator) AS cod_prod, -- varchar	36	     
 	P.denumire AS denumire, -- varchar	50	     
-	P.Initiala_tatalui AS initiala_tata, -- char	1	     
+	LEFT(P.Initiala_tatalui, 1) AS initiala_tata, -- char	1	     
 	P.CNP_CUI AS CNP_CUI, -- varchar	15	     
 	P.Serie_buletin AS serie_BI, -- char	2	     
 	P.Nr_buletin AS nr_BI, -- char	7	     
@@ -89,9 +89,9 @@ SELECT
 	ISNULL(P.cont_banca, '') AS cont_banca, -- varchar	35	     
 	ISNULL(P.banca, '') AS banca, -- varchar	20	     
 	P.data_operarii AS data_operarii, -- datetime2	7	23   
-	NULLIF(P.Utilizator, '') AS operator -- varchar	10	     
-	--(SELECT NULLIF(RTRIM(P.localitate),'') AS loc, NULLIF(RTRIM(P.judet), '') AS jud FOR XML RAW, TYPE) AS detalii -- xml	-1	 
---into #depanare
+	NULLIF(P.Utilizator, '') AS operator, -- varchar	10	     
+	(SELECT NULLIF(RTRIM(P.localitate),'') AS loc, NULLIF(RTRIM(P.judet), '') AS jud FOR XML RAW, TYPE) AS detalii -- xml	-1	 
+--INTO #depanare
 FROM ProdLapte AS P 	
 	OUTER APPLY (SELECT TOP (1) L.cod_oras, L.cod_judet FROM Localitati L WHERE L.cod_oras=P.Localitate OR L.oras LIKE RTRIM(P.Localitate)+'%' 
 		ORDER BY (CASE WHEN L.cod_oras=P.Localitate THEN 0 ELSE 1 END)) AS L
@@ -102,6 +102,11 @@ FROM ProdLapte AS P
 	LEFT JOIN AL_Centre_colectare AS C ON C.cod_centru = P.Centru_colectare
 	LEFT JOIN Utilizatori U ON U.ID = P.Utilizator
 WHERE P.Cod_producator <> ''
---ORDER BY P.Cod_producator
+ORDER BY Cod_producator
+--EXCEPT SELECT cod_prod,denumire,initiala_tata,CNP_CUI,serie_BI,nr_BI,elib_BI,cod_jud,cod_loc,cod_tara,comuna,sat,strada,nr_str,nr_casa,bloc,scara,etaj,ap,cod_exploatatie,cota_actuala,grad_actual,nr_contr,data_contr,valabil_contr,cant_contr,nr_vaci,grupa,pret,bonus,tip_pers,subunit,tert,reprezentant,CNP_repr,id_centru,centru_colectare,loc_munca,DACL,tip_furnizor,cont_banca,banca,data_operarii,operator
+--FROM AL_Producatori 
+
+--SELECT cod_prod,denumire,initiala_tata,CNP_CUI,serie_BI,nr_BI,elib_BI,cod_jud,cod_loc,cod_tara,comuna,sat,strada,nr_str,nr_casa,bloc,scara,etaj,ap,cod_exploatatie,cota_actuala,grad_actual,nr_contr,data_contr,valabil_contr,cant_contr,nr_vaci,grupa,pret,bonus,tip_pers,subunit,tert,reprezentant,CNP_repr,id_centru,centru_colectare,loc_munca,DACL,tip_furnizor,cont_banca,banca,data_operarii,operator
+--FROM AL_Producatori 
 --WHERE j.cod_judet IS NULL
 SET ANSI_WARNINGS ON
