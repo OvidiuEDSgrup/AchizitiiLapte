@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[AL_Centre_colectare]    Script Date: 5/31/2016 3:26:16 PM ******/
+/****** ceva test Object:  Table [dbo].[AL_Centre_colectare]    Script Date: 5/31/2016 3:26:16 PM ******/
 SET ANSI_NULLS ON
 GO
 
