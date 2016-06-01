@@ -12,7 +12,7 @@
     [responsabil]   VARCHAR (30)  NOT NULL,
     [loc_munca]     VARCHAR (9)   NULL,
     [tip_pers]      CHAR (1)      NOT NULL,
-    [subunit]       VARCHAR (9)   CONSTRAINT [DF_AL_Centre_colectare_subunitate] DEFAULT ('1') NOT NULL,
+    [subunit]       VARCHAR (9)   CONSTRAINT [DF_AL_Centre_colectare_subunitate] DEFAULT ('1') NULL,
     [tert]          VARCHAR (13)  NULL,
     [cod_ruta]      VARCHAR (20)  NULL,
     [ord_ruta]      SMALLINT      NOT NULL,
@@ -23,13 +23,15 @@
     CONSTRAINT [CK_AL_Centre_colectare_localitate_judet_tara_completate] CHECK (coalesce([cod_loc],[cod_jud],[cod_tara]) IS NOT NULL),
     CONSTRAINT [CK_AL_Centre_colectare_tip_persoana_Fizica_sau_Juridica] CHECK ([tip_pers]='J' OR [tip_pers]='F'),
     CONSTRAINT [FK_AL_Centre_colectare_Judete] FOREIGN KEY ([cod_jud]) REFERENCES [dbo].[Judete] ([cod_judet]),
-    CONSTRAINT [FK_AL_Centre_colectare_Lm] FOREIGN KEY ([loc_munca]) REFERENCES [dbo].[lm] ([Cod]),
+    CONSTRAINT [FK_AL_Centre_colectare_Lm] FOREIGN KEY ([loc_munca]) REFERENCES [dbo].[Lm] ([Cod]),
     CONSTRAINT [FK_AL_Centre_colectare_Localitati] FOREIGN KEY ([cod_loc]) REFERENCES [dbo].[Localitati] ([cod_oras]),
     CONSTRAINT [FK_AL_Centre_colectare_Rute] FOREIGN KEY ([cod_ruta]) REFERENCES [dbo].[rute] ([codRuta]),
     CONSTRAINT [FK_AL_Centre_colectare_Tari] FOREIGN KEY ([cod_tara]) REFERENCES [dbo].[Tari] ([cod_tara]),
     CONSTRAINT [FK_AL_Centre_colectare_Terti] FOREIGN KEY ([subunit], [tert]) REFERENCES [dbo].[terti] ([Subunitate], [Tert]),
     CONSTRAINT [FK_AL_Centre_colectare_utilizatori] FOREIGN KEY ([operator]) REFERENCES [dbo].[utilizatori] ([ID])
 );
+
+
 
 
 GO
@@ -49,7 +51,9 @@ CREATE NONCLUSTERED INDEX [Ordine_ruta]
 
 GO
 CREATE UNIQUE NONCLUSTERED INDEX [Unic_AL_Centre_colectare]
-    ON [dbo].[AL_Centre_colectare]([cod_centru] ASC);
+    ON [dbo].[AL_Centre_colectare]([denumire] ASC, [cod_jud] ASC, [cod_loc] ASC, [cod_tara] ASC);
+
+
 
 
 GO
