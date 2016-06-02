@@ -56,4 +56,39 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="operator" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="a778013c-44e0-44e7-8944-f9ecf73ae597" ChangeDateTime="06/02/2016 13:35:35">
+    <Property Name="ElementName" Value="[dbo].[BordAchizLapte].[Data_lunii]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BordAchizLapte]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="data_lunii" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0c6d5c28-106d-411d-a446-5d699dc7363f" ChangeDateTime="06/02/2016 13:37:20">
+    <Property Name="ElementName" Value="[dbo].[BordAchizLapte].[Tip]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BordAchizLapte]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="tip_plata" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="17406a84-839d-4458-9647-1304753778a4" ChangeDateTime="06/02/2016 13:37:59">
+    <Property Name="ElementName" Value="[dbo].[BordAchizLapte].[Producator]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BordAchizLapte]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="cod_prod" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="078789fe-cb49-4591-98c5-6b79e54dac11" ChangeDateTime="06/02/2016 13:38:21">
+    <Property Name="ElementName" Value="[dbo].[BordAchizLapte].[Centru_colectare]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BordAchizLapte]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="cod_centru" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8a51f9a2-384d-4110-b0db-1af754a16586" ChangeDateTime="06/02/2016 13:38:50">
+    <Property Name="ElementName" Value="[dbo].[BordAchizLapte].[Tip_lapte]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BordAchizLapte]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="cod_lapte" />
+  </Operation>
 </Operations>

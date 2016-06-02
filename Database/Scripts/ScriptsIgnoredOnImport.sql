@@ -298,3 +298,14 @@ GO
 --WHERE j.cod_judet IS NULL
 SET ANSI_WARNINGS ON
 GO
+/*
+select * 
+--*/delete b
+from BordAchizLapte b where exists (
+select Data_lunii, Producator, Centru_colectare, Tip_lapte, count(distinct tip)
+from BordAchizLapte
+group by Data_lunii, Producator, Centru_colectare, Tip_lapte
+having count(distinct tip)>1
+	and data_lunii=b.Data_lunii and Producator=b.Producator and Centru_colectare=b.Centru_colectare and Tip_lapte=b.Tip_lapte
+)
+and b.Cant_UM+b.Cant_STAS+b.Cant_UG=0

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[nomencl] (
     [Cod]                    VARCHAR (20)  NOT NULL,
-    [Tip]                    VARCHAR (1)   NOT NULL,
+    [Tip]                    CHAR (1)   NOT NULL,
     [Denumire]               VARCHAR (80)  NOT NULL,
     [UM]                     VARCHAR (3)   NOT NULL,
     [UM_1]                   VARCHAR (3)   NOT NULL,
