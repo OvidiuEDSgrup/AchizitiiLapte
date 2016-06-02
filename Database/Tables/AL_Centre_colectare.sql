@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[AL_Centre_colectare] (
     [id_centru]     INT           CONSTRAINT [DF_AL_Centre_colectare_id_centru] DEFAULT (NEXT VALUE FOR [AL_Centre_colectare_id_centru]) NOT NULL,
-    [cod_centru]    VARCHAR (36)  CONSTRAINT [DF_AL_Centre_colectare_cod_centru_colectare] DEFAULT (newid()) NOT NULL,
+    [cod_centru]    VARCHAR (36)  NULL,
     [denumire]      VARCHAR (50)  NOT NULL,
     [cod_IBAN]      VARCHAR (30)  NOT NULL,
     [banca]         VARCHAR (20)  NOT NULL,
@@ -30,6 +30,8 @@
     CONSTRAINT [FK_AL_Centre_colectare_Terti] FOREIGN KEY ([subunit], [tert]) REFERENCES [dbo].[terti] ([Subunitate], [Tert]),
     CONSTRAINT [FK_AL_Centre_colectare_utilizatori] FOREIGN KEY ([operator]) REFERENCES [dbo].[utilizatori] ([ID])
 );
+
+
 
 
 
