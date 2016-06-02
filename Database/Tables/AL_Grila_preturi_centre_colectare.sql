@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[AL_Grila_preturi_centre_colectare] (
-    [id_centru]     INT           NULL,
-    [cod_centru]    VARCHAR (36)  CONSTRAINT [DF_AL_Grila_preturi_centre_colectare_cod_centru] DEFAULT (newid()) NOT NULL,
-    [id_tip_lapte]  INT           NULL,
+    [id_centru]     INT           NOT NULL,
+    [cod_centru]    VARCHAR (36)   NULL,
+    [id_tip_lapte]  INT           NOT NULL,
     [cod_lapte]     CHAR (20)     NOT NULL,
     [data_lunii]    DATETIME2 (0) NOT NULL,
     [tip_plata]     CHAR (1)      NOT NULL,
@@ -11,7 +11,9 @@
     [UM]            CHAR (3)      NOT NULL,
     [Data_operarii] DATETIME      NOT NULL,
     [Ora_operarii]  CHAR (6)      NOT NULL,
-    [Utilizator]    CHAR (10)     NOT NULL
+    [Utilizator]    CHAR (10)     NOT NULL, 
+    CONSTRAINT [FK_AL_Grila_preturi_centre_colectare_AL_Centre_colectare] FOREIGN KEY (id_centru) REFERENCES [AL_Centre_colectare](id_centru), 
+    CONSTRAINT [FK_AL_Grila_preturi_centre_colectare_Nomencl] FOREIGN KEY (cod_lapte) REFERENCES Nomencl(cod)
 );
 
 

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[AL_Producatori] (
     [id_prod]          INT             CONSTRAINT [DF_AL_Producatori_id_prod] DEFAULT (NEXT VALUE FOR [AL_Producatori_id_prod]) NOT NULL,
-    [cod_prod]         VARCHAR (36)    NULL,
+    [cod_prod]         VARCHAR (36)    CONSTRAINT [DF_AL_Producatori_cod_prod] DEFAULT (newid()) NOT NULL,
     [denumire]         VARCHAR (50)    NOT NULL,
     [initiala_tata]    CHAR (1)        NOT NULL,
     [CNP_CUI]          VARCHAR (15)    NOT NULL,
@@ -58,6 +58,8 @@
 
 
 
+
+
 GO
 CREATE NONCLUSTERED INDEX [Denumire]
     ON [dbo].[AL_Producatori]([denumire] ASC);
@@ -65,7 +67,9 @@ CREATE NONCLUSTERED INDEX [Denumire]
 
 GO
 CREATE UNIQUE NONCLUSTERED INDEX [Unic_AL_Producatori]
-    ON [dbo].[AL_Producatori]([CNP_CUI] ASC, [denumire] ASC);
+    ON [dbo].[AL_Producatori]([cod_prod] ASC);
+
+
 
 
 

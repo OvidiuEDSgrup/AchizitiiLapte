@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="8fe3735c-cbce-456f-8304-511ff8b93f82" ChangeDateTime="06/02/2016 08:39:01">
+    <Property Name="ElementName" Value="[dbo].[FK_AL_Grila_preturi_centre_colectare_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[AL_Grila_preturi_centre_colectare]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_AL_Grila_preturi_centre_colectare_AL_Centre_colectare]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="620dc9a4-72e0-44b8-818d-4e962b23fa82" ChangeDateTime="06/02/2016 08:39:30">
+    <Property Name="ElementName" Value="[dbo].[FK_AL_Grila_preturi_centre_colectare_ToTable_1]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[AL_Grila_preturi_centre_colectare]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_AL_Grila_preturi_centre_colectare_Nomencl]" />
+  </Operation>
+</Operations>
