@@ -309,3 +309,7 @@ having count(distinct tip)>1
 	and data_lunii=b.Data_lunii and Producator=b.Producator and Centru_colectare=b.Centru_colectare and Tip_lapte=b.Tip_lapte
 )
 and b.Cant_UM+b.Cant_STAS+b.Cant_UG=0
+
+/*TODO:
+	De preluat si proprietatile de grasime din borderoul de achizitii in borderoul de analize
+	*/
