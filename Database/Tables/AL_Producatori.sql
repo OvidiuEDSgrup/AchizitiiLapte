@@ -1,15 +1,24 @@
 ﻿CREATE TABLE dbo.AL_Producatori (
-    id_prod          INT             CONSTRAINT DF_AL_Producatori_id_prod DEFAULT (NEXT VALUE FOR AL_Producatori_id_prod) NOT NULL,
-    cod_prod         VARCHAR (36)    CONSTRAINT DF_AL_Producatori_cod_prod DEFAULT (newid()) NOT NULL,
+    id_prod          INT NOT NULL
+		DEFAULT (NEXT VALUE FOR AL_Producatori_id_prod)
+		CONSTRAINT PK_AL_Producatori 
+			PRIMARY KEY CLUSTERED (id_prod ASC),
+    cod_prod         VARCHAR (36)    NULL,
     denumire         VARCHAR (50)    NOT NULL,
     initiala_tata    CHAR (1)        NOT NULL,
     CNP_CUI          VARCHAR (15)    NOT NULL,
     serie_BI         CHAR (2)        NOT NULL,
     nr_BI            CHAR (7)        NOT NULL,
     elib_BI          VARCHAR (20)    NOT NULL,
-    cod_jud          VARCHAR (3)     NULL,
-    cod_loc          VARCHAR (8)     NULL,
-    cod_tara         VARCHAR (3)     NULL,
+    cod_jud          VARCHAR (3)     NULL
+		CONSTRAINT FK_AL_Producatori_Judete 
+			FOREIGN KEY (cod_jud) REFERENCES dbo.Judete (cod_judet),
+    cod_loc          VARCHAR (8)     NULL
+		CONSTRAINT FK_AL_Producatori_Localitati 
+			FOREIGN KEY (cod_loc) REFERENCES dbo.Localitati (cod_oras),
+    cod_tara         VARCHAR (3)     NULL
+		CONSTRAINT FK_AL_Producatori_Tari 
+			FOREIGN KEY (cod_tara) REFERENCES dbo.Tari (cod_tara),
     comuna           VARCHAR (30)    NOT NULL,
     sat              VARCHAR (30)    NOT NULL,
     strada           VARCHAR (30)    NOT NULL,
@@ -31,43 +40,30 @@
     pret             DECIMAL (12, 2) NOT NULL,
     bonus            TINYINT         NOT NULL,
     tip_pers         CHAR (1)        NOT NULL,
-    subunit          VARCHAR (9)     CONSTRAINT DF_AL_Producatori_subunitate DEFAULT ('1') NULL,
+    subunit          VARCHAR (9)     NULL,
     tert             VARCHAR (13)    NULL,
     reprezentant     VARCHAR (30)    NOT NULL,
     CNP_repr         VARCHAR (13)    NOT NULL,
     id_centru        INT             NULL,
-    centru_colectare VARCHAR (9)     NOT NULL,
     loc_munca        VARCHAR (9)     NOT NULL,
     DACL             TINYINT         NOT NULL,
     tip_furnizor     CHAR (1)        NOT NULL,
-    cont_banca       VARCHAR (35)    CONSTRAINT DF_ProdLapte_cont_banca DEFAULT ('') NOT NULL,
+    cont_banca       VARCHAR (35)    NOT NULL DEFAULT (''),
     banca            VARCHAR (20)    NOT NULL,
     data_operarii    DATETIME2 (3)   NOT NULL,
-    operator         VARCHAR (10)    NULL,
+    operator         VARCHAR (10)    NULL
+		CONSTRAINT FK_AL_Producatori_Utilizatori 
+			FOREIGN KEY (operator) REFERENCES dbo.utilizatori (ID),
     detalii          XML             NULL,
-    CONSTRAINT PK_AL_Producatori PRIMARY KEY CLUSTERED (id_prod ASC),
-    CONSTRAINT CK_AL_Producatori_localitate_judet_tara_completate CHECK (coalesce(cod_loc,cod_jud,cod_tara) IS NOT NULL),
-    CONSTRAINT FK_AL_Producatori_AL_Centre_colectare FOREIGN KEY (id_centru) REFERENCES dbo.AL_Centre_colectare (id_centru),
-    CONSTRAINT FK_AL_Producatori_Judete FOREIGN KEY (cod_jud) REFERENCES dbo.Judete (cod_judet),
-    CONSTRAINT FK_AL_Producatori_Localitati FOREIGN KEY (cod_loc) REFERENCES dbo.Localitati (cod_oras),
-    CONSTRAINT FK_AL_Producatori_Tari FOREIGN KEY (cod_tara) REFERENCES dbo.Tari (cod_tara),
-    CONSTRAINT FK_AL_Producatori_Terti FOREIGN KEY (subunit, tert) REFERENCES dbo.terti (Subunitate, Tert),
-    CONSTRAINT FK_AL_Producatori_Utilizatori FOREIGN KEY (operator) REFERENCES dbo.utilizatori (ID)
+    CONSTRAINT FK_AL_Producatori_Terti 
+		FOREIGN KEY (subunit, tert) REFERENCES dbo.terti (Subunitate, Tert),
+    CONSTRAINT CK_AL_Prod_Loc_Jud_Tara_Completate 
+		CHECK (coalesce(cod_loc,cod_jud,cod_tara) IS NOT NULL)
 );
 
-
-
-
-
-
 GO
-CREATE NONCLUSTERED INDEX Denumire
-    ON dbo.AL_Producatori(denumire ASC);
-
-
-GO
-CREATE UNIQUE NONCLUSTERED INDEX Unic_AL_Producatori
-    ON dbo.AL_Producatori(cod_prod ASC);
+CREATE UNIQUE NONCLUSTERED INDEX UQ_AL_Producatori
+    ON dbo.AL_Producatori(denumire ASC, initiala_tata ASC, CNP_CUI ASC);
 
 
 

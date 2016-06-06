@@ -44,7 +44,7 @@ DELETE AL_Producatori
 --DBCC CHECKIDENT(AL_Producatori, reseed, 0)
 ALTER SEQUENCE AL_Producatori_id_prod RESTART WITH 1
 SET ANSI_WARNINGS ON
-INSERT INTO AL_Producatori (cod_prod,denumire,initiala_tata,CNP_CUI,serie_BI,nr_BI,elib_BI,cod_jud,cod_loc,cod_tara,comuna,sat,strada,nr_str,nr_casa,bloc,scara,etaj,ap,cod_exploatatie,cota_actuala,grad_actual,nr_contr,data_contr,valabil_contr,cant_contr,nr_vaci,grupa,pret,bonus,tip_pers,subunit,tert,reprezentant,CNP_repr,id_centru,centru_colectare,loc_munca,DACL,tip_furnizor,cont_banca,banca,data_operarii,operator,detalii) 
+INSERT INTO AL_Producatori (cod_prod,denumire,initiala_tata,CNP_CUI,serie_BI,nr_BI,elib_BI,cod_jud,cod_loc,cod_tara,comuna,sat,strada,nr_str,nr_casa,bloc,scara,etaj,ap,cod_exploatatie,cota_actuala,grad_actual,nr_contr,data_contr,valabil_contr,cant_contr,nr_vaci,grupa,pret,bonus,tip_pers,subunit,tert,reprezentant,CNP_repr,id_centru,loc_munca,DACL,tip_furnizor,cont_banca,banca,data_operarii,operator,detalii) 
 SELECT 
 	RTRIM(P.Cod_producator) AS cod_prod, -- varchar	36	     
 	P.denumire AS denumire, -- varchar	50	     
@@ -82,7 +82,6 @@ SELECT
 	P.reprezentant AS reprezentant, -- varchar	30	     
 	P.CNP_repr AS CNP_repr, -- varchar	13	     
 	NULLIF(C.id_centru, '') AS id_centru, -- int	4	10   
-	P.centru_colectare AS centru_colectare, -- varchar	9	     
 	P.Loc_de_munca AS loc_munca, -- varchar	9	     
 	P.DACL AS DACL, -- tinyint	1	3    
 	P.tip_furnizor AS tip_furnizor, -- char	1	     
@@ -90,7 +89,8 @@ SELECT
 	ISNULL(P.banca, '') AS banca, -- varchar	20	     
 	P.data_operarii AS data_operarii, -- datetime2	7	23   
 	NULLIF(P.Utilizator, '') AS operator, -- varchar	10	     
-	(SELECT NULLIF(RTRIM(P.localitate),'') AS loc, NULLIF(RTRIM(P.judet), '') AS jud FOR XML RAW, TYPE) AS detalii -- xml	-1	 
+	(SELECT NULLIF(RTRIM(P.localitate),'') AS loc, NULLIF(RTRIM(P.judet), '') AS jud, NULLIF(RTRIM(P.centru_colectare), '') AS cen_col
+	FOR XML RAW, TYPE) AS detalii -- xml	-1	 
 --INTO #depanare
 FROM ProdLapte AS P 	
 	OUTER APPLY (SELECT TOP (1) L.cod_oras, L.cod_judet FROM Localitati L WHERE L.cod_oras=P.Localitate OR L.oras LIKE RTRIM(P.Localitate)+'%' 
