@@ -1,4 +1,4 @@
-﻿CREATE SEQUENCE dbo.AL_Achizitii_centre_ID_achizitie_centru
+﻿CREATE SEQUENCE dbo.AL_Liste_achizitie_ID_lista
 		AS BIGINT
 		START WITH 1
 		INCREMENT BY 1
