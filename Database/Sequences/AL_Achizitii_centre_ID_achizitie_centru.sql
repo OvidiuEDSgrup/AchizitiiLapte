@@ -1,0 +1,7 @@
+﻿CREATE SEQUENCE dbo.AL_Achizitii_centre_ID_achizitie_centru
+		AS BIGINT
+		START WITH 1
+		INCREMENT BY 1
+		NO MAXVALUE
+		NO CYCLE
+		NO CACHE
