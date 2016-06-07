@@ -1,5 +1,5 @@
-﻿CREATE SEQUENCE dbo.AL_Liste_achizitie_ID_lista
-		AS BIGINT
+﻿CREATE SEQUENCE dbo.AL_Liste_achizitii_ID_lista
+		AS INT
 		START WITH 1
 		INCREMENT BY 1
 		NO MAXVALUE

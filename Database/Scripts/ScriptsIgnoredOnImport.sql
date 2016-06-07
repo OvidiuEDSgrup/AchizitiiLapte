@@ -104,7 +104,7 @@ DELETE AL_Centre_colectare
 GO
 
 --DBCC CHECKIDENT(AL_Centre_colectare, reseed, 0)
-ALTER SEQUENCE AL_Centre_colectare_id_centru RESTART WITH 1
+ALTER SEQUENCE AL_Centre_colectare_ID_centru RESTART WITH 1
 GO
 
 INSERT INTO AL_Centre_colectare 
@@ -223,7 +223,7 @@ DELETE AL_Producatori
 GO
 
 --DBCC CHECKIDENT(AL_Producatori, reseed, 0)
-ALTER SEQUENCE AL_Producatori_id_prod RESTART WITH 1
+ALTER SEQUENCE AL_Producatori_ID_prod RESTART WITH 1
 GO
 
 SET ANSI_WARNINGS ON

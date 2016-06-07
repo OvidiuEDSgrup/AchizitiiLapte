@@ -1,6 +1,6 @@
 ﻿CREATE TABLE dbo.AL_Centre_colectare (
     id_centru     INT           
-		DEFAULT (NEXT VALUE FOR AL_Centre_colectare_id_centru) NOT NULL
+		DEFAULT (NEXT VALUE FOR AL_Centre_colectare_ID_centru) NOT NULL
 		CONSTRAINT PK_AL_Centre_colectare 
 			PRIMARY KEY CLUSTERED (id_centru ASC),
     cod_centru    VARCHAR (36)  NULL,

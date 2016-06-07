@@ -1,4 +1,4 @@
-﻿CREATE SEQUENCE dbo.AL_Achizitii_ID_achizitie
+﻿CREATE SEQUENCE [dbo].AL_Tipuri_lapte_ID_tip_lapte
 	AS INT
 	START WITH 1
 	INCREMENT BY 1

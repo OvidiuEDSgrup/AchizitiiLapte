@@ -2,9 +2,9 @@
 	id_achizitie INT 
 		CONSTRAINT PK_AL_Achizitii 
 			PRIMARY KEY DEFAULT (NEXT VALUE FOR AL_Achizitii_ID_achizitie),
-	id_achizitie_centru INT NOT NULL 
+	id_lista INT NOT NULL 
 		CONSTRAINT FK_AL_Liste_achizitie 
-			FOREIGN KEY REFERENCES AL_Liste_achizitie(id_achizitie_centru),
+			FOREIGN KEY REFERENCES AL_Liste_achizitii(id_lista),
 	id_prod INT NOT NULL
 		CONSTRAINT FK_AL_Achizitii_Producatori 
 			FOREIGN KEY REFERENCES AL_Producatori(id_prod),
@@ -15,8 +15,8 @@
 	detalii			XML NULL
 );
 GO
-CREATE UNIQUE NONCLUSTERED INDEX UQ_ID_lst_ID_prod
-    ON dbo.AL_Achizitii(id_achizitie_centru ASC, id_prod ASC) 
+CREATE UNIQUE NONCLUSTERED INDEX UQ_AL_Achizitii_ID_lst_ID_prod
+    ON dbo.AL_Achizitii(id_lista ASC, id_prod ASC) 
 
 
 

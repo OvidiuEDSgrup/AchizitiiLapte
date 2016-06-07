@@ -21,4 +21,88 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="data_lunii" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="10fa1e1c-09d8-493c-bc64-136632a75fd7" ChangeDateTime="06/07/2016 11:09:07">
+    <Property Name="ElementName" Value="[dbo].[AL_Liste_achizitie_ID_lista]" />
+    <Property Name="ElementType" Value="SqlSequence" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="AL_Liste_achizitii_ID_lista" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7106d688-1c13-43ba-a98c-c26cbbaeef5b" ChangeDateTime="06/07/2016 11:09:24">
+    <Property Name="ElementName" Value="[dbo].[AL_Liste_achizitie]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="AL_Liste_achizitii" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8984e0e4-41f1-4840-abd5-24cea65889a3" ChangeDateTime="06/07/2016 11:27:03">
+    <Property Name="ElementName" Value="[dbo].[AL_Achizitii_ID_achizitie]" />
+    <Property Name="ElementType" Value="SqlSequence" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="AL_Analize_achizitii_ID_achizitie" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="cbd1587b-6c32-4f3e-ba9a-7720194d850f" ChangeDateTime="06/07/2016 11:27:16">
+    <Property Name="ElementName" Value="[dbo].[AL_Centre_colectare_id_centru]" />
+    <Property Name="ElementType" Value="SqlSequence" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="AL_Centre_colectare_ID_centru" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c9859cf8-01d6-435d-82eb-f13965adb5b8" ChangeDateTime="06/07/2016 11:27:50">
+    <Property Name="ElementName" Value="[dbo].[AL_Producatori_id_prod]" />
+    <Property Name="ElementType" Value="SqlSequence" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="AL_Producatori_ID_prod" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c5a85878-8093-413a-b982-11e4f8fb5361" ChangeDateTime="06/07/2016 12:26:21">
+    <Property Name="ElementName" Value="[dbo].[AL_Indic_analiza_Tip_lapte_ID_indic]" />
+    <Property Name="ElementType" Value="SqlSequence" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="AL_Indicatori_analiza_ID_indicator" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="498bd80b-d193-498c-bfec-db5d73cf7828" ChangeDateTime="06/07/2016 12:26:40">
+    <Property Name="ElementName" Value="[dbo].[AL_Indicatori_analiza_Tip_lapte]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="AL_Indicatori_analiza" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0c009b04-7329-4180-b5bd-ad10b181b0da" ChangeDateTime="06/07/2016 12:40:23">
+    <Property Name="ElementName" Value="[dbo].[AL_Indicatori_analiza]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="AL_Indicatori_analiza_Tipuri_lapte" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e9fee6e8-d396-4b66-80f7-c8b6e5ea12d8" ChangeDateTime="06/07/2016 12:52:33">
+    <Property Name="ElementName" Value="[dbo].[AL_Analize_achizitii_ID_achizitie]" />
+    <Property Name="ElementType" Value="SqlSequence" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="AL_Achizitii_ID_achizitie" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0daa8138-3194-4c13-b9af-5de246815038" ChangeDateTime="06/07/2016 12:53:21">
+    <Property Name="ElementName" Value="[dbo].[AL_Achizitii].[id_achizitie_centru]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AL_Achizitii]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_lista_achizitie" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a7c80c03-411c-4d10-bf2d-ffa086cde98a" ChangeDateTime="06/07/2016 12:53:44">
+    <Property Name="ElementName" Value="[dbo].[AL_Liste_achizitii].[id_achizitie_centru]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AL_Liste_achizitii]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_lista" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="09dd9e0b-f99c-47cf-ac22-e722c8fc80af" ChangeDateTime="06/07/2016 12:56:13">
+    <Property Name="ElementName" Value="[dbo].[AL_Achizitii].[id_lista_achizitie]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AL_Achizitii]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_lista" />
+  </Operation>
 </Operations>

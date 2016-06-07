@@ -1,6 +1,6 @@
 ﻿CREATE TABLE dbo.AL_Producatori (
     id_prod          INT NOT NULL
-		DEFAULT (NEXT VALUE FOR AL_Producatori_id_prod)
+		DEFAULT (NEXT VALUE FOR AL_Producatori_ID_prod)
 		CONSTRAINT PK_AL_Producatori 
 			PRIMARY KEY CLUSTERED (id_prod ASC),
     cod_prod         VARCHAR (36)    NULL,
