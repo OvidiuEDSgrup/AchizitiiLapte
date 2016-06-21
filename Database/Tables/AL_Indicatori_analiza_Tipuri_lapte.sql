@@ -8,6 +8,7 @@ CREATE TABLE [dbo].AL_Indicatori_analiza_Tipuri_lapte (
 			FOREIGN KEY (cod_indicator) REFERENCES AL_Indicatori_analiza(cod_indicator),				
     denumire		VARCHAR (30)  NOT NULL,
     val_standard	DECIMAL(10,5) NOT NULL,
+	coef_corectie_pret decimal(10,5) NULL,
     ord_achizitii	TINYINT   NOT NULL,
     ord_receptii	TINYINT   NOT NULL
 );

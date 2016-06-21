@@ -105,4 +105,32 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="id_lista" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="c3c88d0e-6040-4ea0-a763-649039722496" ChangeDateTime="06/21/2016 12:44:09">
+    <Property Name="ElementName" Value="[dbo].[Table1].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Table1]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_corectie" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f96a2b4e-06a3-46c6-8d39-aca9d763abc9" ChangeDateTime="06/21/2016 12:44:42">
+    <Property Name="ElementName" Value="[dbo].[Table1].[id_prod]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Table1]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_achizitie" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3cfe30d8-a3ac-4146-9753-a8002c66405d" ChangeDateTime="06/21/2016 13:01:41">
+    <Property Name="ElementName" Value="[dbo].[Grila_pret_cantitate].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Grila_pret_cantitate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_grila" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="80e6308c-cf62-4e3d-b0fd-2a5698c7bf7d" ChangeDateTime="06/21/2016 13:03:17">
+    <Property Name="ElementName" Value="[dbo].[Grupe_producatori].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Grupe_producatori]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_grupa" />
+  </Operation>
 </Operations>
