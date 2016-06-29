@@ -66,7 +66,6 @@
     <Folder Include="Tables\" />
     <Folder Include="Sequences\" />
     <Folder Include="Scripts\" />
-    <Folder Include="T4" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Tari.sql" />
@@ -93,30 +92,11 @@
     <Build Include="Tables\AL_Indicatori_analiza_Tipuri_lapte.sql" />
     <Build Include="Sequences\AL_Tipuri_lapte_ID_tip_lapte.sql" />
     <Build Include="Tables\AL_Indicatori_analiza.sql" />
-    <Build Include="T4\TextTemplateSql1.sql">
-      <DependentUpon>T4\TextTemplateSql1.tt</DependentUpon>
-    </Build>
+    <Build Include="Tables\AL_Corectii_pret.sql" />
+    <Build Include="Tables\AL_Grila_pret_cantitate.sql" />
+    <Build Include="Tables\AL_Grupe_producatori.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="T4\InMemoryDatabaseModelInclude.tt" />
-    <None Include="T4\TextTemplateSql1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="T4\TextTemplate1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="T4\TextTemplate1.txt">
-      <DependentUpon>T4\TextTemplate1.tt</DependentUpon>
-    </None>
-    <None Include="T4\AuditingTables.tt" />
-    <None Include="T4\AuditingTriggers.tt" />
-    <None Include="T4\HistoryTables.tt" />
-    <None Include="T4\HistoryTriggers.tt" />
-    <None Include="T4\ListFKs.tt" />
-    <None Include="T4\ListFunctions.tt" />
-    <None Include="T4\ListViews.tt" />
   </ItemGroup>
 </Project>
