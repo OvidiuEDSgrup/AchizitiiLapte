@@ -1,7 +1,8 @@
 ﻿CREATE TABLE dbo.AL_Achizitii (
-	id_achizitie INT 
+	id_achizitie INT NOT NULL
+		DEFAULT (NEXT VALUE FOR AL_Achizitii_ID_achizitie)
 		CONSTRAINT PK_AL_Achizitii 
-			PRIMARY KEY DEFAULT (NEXT VALUE FOR AL_Achizitii_ID_achizitie),
+			PRIMARY KEY CLUSTERED (id_achizitie),
 	id_lista INT NOT NULL 
 		CONSTRAINT FK_AL_Liste_achizitie 
 			FOREIGN KEY REFERENCES AL_Liste_achizitii(id_lista),
