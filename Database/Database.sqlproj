@@ -66,6 +66,7 @@
     <Folder Include="Tables\" />
     <Folder Include="Sequences\" />
     <Folder Include="Scripts\" />
+    <Folder Include="T4" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Tari.sql" />
@@ -98,5 +99,17 @@
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="T4\AuditingTables.tt" />
+    <None Include="T4\AuditingTriggers.tt" />
+    <None Include="T4\HistoryTables.tt" />
+    <None Include="T4\HistoryTriggers.tt" />
+    <None Include="T4\InMemoryDatabaseModelInclude.tt" />
+    <None Include="T4\ListFKs.tt" />
+    <None Include="T4\ListFunctions.tt" />
+    <None Include="T4\ListViews.tt" />
+    <None Include="T4\TextTemplate1.tt" />
+    <None Include="T4\TextTemplateSql1.tt" />
   </ItemGroup>
 </Project>
