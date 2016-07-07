@@ -1,0 +1,79 @@
+<#@ template   debug="true" hostSpecific="true" #>
+<#@ output extension="sql" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="Microsoft.SqlServer.ConnectionInfo"#>
+<#@ assembly name="Microsoft.SqlServer.Smo" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
+
+-- Next line is only needed on SQL 2008
+<#@ assembly name="Microsoft.SqlServer.Management.Sdk.Sfc" #>
+
+
+<#
+	string serverName = @"127.0.0.1";
+    string databaseName = @"AL";
+    Server server = new Server(serverName);       
+    Database database = new Database(server, databaseName);
+    database.Refresh();	
+	foreach(Table table in database.Tables)
+	{	
+#>		IF  EXISTS (SELECT * FROM sys.objects 
+			WHERE object_id = OBJECT_ID(N'<#=  table.Name #>_insert') AND type in (N'P', N'PC'))
+		DROP PROCEDURE  <#=  table.Name  #>_insert
+		GO
+		
+		create procedure <#=  table.Name  #>_insert
+<# 
+		int count = 0;
+		this.PushIndent("        ");
+		this.Write("    ");
+		foreach(Column column in table.Columns)
+		{
+			if (!column.Identity){
+				if (count>0) this.Write(" , ");
+				this.Write("@" + column.Name + " " + column.DataType );
+				count ++;
+			}
+		}
+		this.PopIndent();
+		this.WriteLine("    ");
+		#>
+		as
+		insert into <#= table.Name #> 
+		(
+		<# 
+			//this.PushIndent("        ");
+			count = 0;
+			this.Write("    ");
+			foreach (Column column in table.Columns)
+			{
+				if (!column.Identity){
+					if	(count>0) this.Write(" , ");
+					this.Write(column.Name);
+					count ++;
+				}
+			}
+			this.WriteLine("");
+		#>
+		) values (
+		<#  
+			//this.PushIndent("        ");
+			count = 0;
+			this.Write("    ");
+			foreach(Column column in table.Columns)
+			{
+				if (!column.Identity){
+					if	(count>0) this.Write(" , ");
+					this.Write("@" + column.Name);
+					count ++;
+				}
+			}
+		#> 
+<# 
+	this.WriteLine("        )");
+	this.WriteLine("        GO");
+		this.PopIndent();
+		WriteLine("");
+		WriteLine("");
+	}
+#>

@@ -96,6 +96,12 @@
     <Build Include="Tables\AL_Corectii_pret.sql" />
     <Build Include="Tables\AL_Grila_pret_cantitate.sql" />
     <Build Include="Tables\AL_Grupe_producatori.sql" />
+    <Build Include="T4\SampleStoredProcedure.sql">
+      <DependentUpon>T4\SampleStoredProcedure.tt</DependentUpon>
+    </Build>
+    <Build Include="T4\StoredProcedureInsertSample.sql">
+      <DependentUpon>T4\StoredProcedureInsertSample.tt</DependentUpon>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
@@ -109,7 +115,26 @@
     <None Include="T4\ListFKs.tt" />
     <None Include="T4\ListFunctions.tt" />
     <None Include="T4\ListViews.tt" />
-    <None Include="T4\TextTemplate1.tt" />
+    <None Include="T4\TextTemplate1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
     <None Include="T4\TextTemplateSql1.tt" />
+    <None Include="T4\TextTemplate2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="T4\TextTemplate2.txt">
+      <DependentUpon>T4\TextTemplate2.tt</DependentUpon>
+    </None>
+    <None Include="T4\SampleStoredProcedure.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="T4\StoredProcedureInsertSample.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="T4\TextTemplate1.cs">
+      <DependentUpon>T4\TextTemplate1.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
