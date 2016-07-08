@@ -96,6 +96,12 @@
     <Build Include="Tables\AL_Corectii_pret.sql" />
     <Build Include="Tables\AL_Grila_pret_cantitate.sql" />
     <Build Include="Tables\AL_Grupe_producatori.sql" />
+    <Build Include="T4\TextTemplateSql2.sql">
+      <DependentUpon>T4\TextTemplateSql2.tt</DependentUpon>
+    </Build>
+    <Build Include="T4\ListFKs.sql">
+      <DependentUpon>T4\ListFKs.tt</DependentUpon>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
@@ -106,10 +112,15 @@
     <None Include="T4\HistoryTables.tt" />
     <None Include="T4\HistoryTriggers.tt" />
     <None Include="T4\InMemoryDatabaseModelInclude.tt" />
-    <None Include="T4\ListFKs.tt" />
+    <None Include="T4\ListFKs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
     <None Include="T4\ListFunctions.tt" />
     <None Include="T4\ListViews.tt" />
     <None Include="T4\TextTemplate1.tt" />
     <None Include="T4\TextTemplateSql1.tt" />
+    <None Include="T4\TextTemplateSql2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
   </ItemGroup>
 </Project>
