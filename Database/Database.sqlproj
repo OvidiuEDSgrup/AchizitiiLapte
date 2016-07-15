@@ -67,6 +67,7 @@
     <Folder Include="Sequences\" />
     <Folder Include="Scripts\" />
     <Folder Include="T4" />
+    <Folder Include="Storage" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Tari.sql" />
@@ -96,11 +97,12 @@
     <Build Include="Tables\AL_Corectii_pret.sql" />
     <Build Include="Tables\AL_Grila_pret_cantitate.sql" />
     <Build Include="Tables\AL_Grupe_producatori.sql" />
-    <Build Include="T4\SampleStoredProcedure.sql">
-      <DependentUpon>T4\SampleStoredProcedure.tt</DependentUpon>
+    <Build Include="Storage\SYSS.sql" />
+    <Build Include="T4\ListFKs.sql">
+      <DependentUpon>T4\ListFKs.tt</DependentUpon>
     </Build>
-    <Build Include="T4\StoredProcedureInsertSample.sql">
-      <DependentUpon>T4\StoredProcedureInsertSample.tt</DependentUpon>
+    <Build Include="T4\TextTemplate3.sql">
+      <DependentUpon>T4\TextTemplate3.tt</DependentUpon>
     </Build>
   </ItemGroup>
   <ItemGroup>
@@ -109,10 +111,16 @@
   <ItemGroup>
     <None Include="T4\AuditingTables.tt" />
     <None Include="T4\AuditingTriggers.tt" />
-    <None Include="T4\HistoryTables.tt" />
-    <None Include="T4\HistoryTriggers.tt" />
+    <None Include="T4\HistoryTables.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="T4\HistoryTriggers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
     <None Include="T4\InMemoryDatabaseModelInclude.tt" />
-    <None Include="T4\ListFKs.tt" />
+    <None Include="T4\ListFKs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
     <None Include="T4\ListFunctions.tt" />
     <None Include="T4\ListViews.tt" />
     <None Include="T4\TextTemplate1.tt">
@@ -129,6 +137,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Include="T4\StoredProcedureInsertSample.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="T4\TextTemplate3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
   </ItemGroup>
