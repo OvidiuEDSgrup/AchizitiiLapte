@@ -4,7 +4,7 @@
 		CONSTRAINT PK_AL_Achizitii 
 			PRIMARY KEY CLUSTERED (id_achizitie),
 	id_lista INT NOT NULL 
-		CONSTRAINT FK_AL_Liste_achizitie 
+		CONSTRAINT FK_AL_Achizitii_Liste_achizitie 
 			FOREIGN KEY REFERENCES AL_Liste_achizitii(id_lista),
 	id_prod INT NOT NULL
 		CONSTRAINT FK_AL_Achizitii_Producatori 
