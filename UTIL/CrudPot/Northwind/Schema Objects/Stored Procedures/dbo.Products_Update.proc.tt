@@ -1,5 +1,0 @@
-<#
-	this.ConnectionString = "Data Source=.;Initial Catalog=Northwind;Integrated Security=True";
-	this.TableName = "Products";
-#>
-<#@ include file="UpdateProcedure.tt" #>

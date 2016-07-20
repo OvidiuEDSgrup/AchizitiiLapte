@@ -1,7 +1,0 @@
-﻿ALTER TABLE Region
-	ADD CONSTRAINT [PK_Region] PRIMARY KEY  NONCLUSTERED 
-	(
-		[RegionID]
-	)  ON [PRIMARY]
-
-
