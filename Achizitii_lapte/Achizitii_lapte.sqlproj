@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Database</Name>
+    <Name>Achizitii_lapte</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{a115517b-18a8-4bbb-82e2-35ccad254896}</ProjectGuid>
@@ -66,8 +66,9 @@
     <Folder Include="Tables\" />
     <Folder Include="Sequences\" />
     <Folder Include="Scripts\" />
-    <Folder Include="T4" />
+    <Folder Include="TT" />
     <Folder Include="Storage" />
+    <Folder Include="Stored_Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Tari.sql" />
@@ -98,34 +99,37 @@
     <Build Include="Tables\AL_Grila_pret_cantitate.sql" />
     <Build Include="Tables\AL_Grupe_producatori.sql" />
     <Build Include="Storage\SYSS.sql" />
-    <Build Include="T4\TextTemplate3.sql">
-      <DependentUpon>T4\TextTemplate3.tt</DependentUpon>
+    <Build Include="Stored_Procedures\AL_wIaProducatori.sql" />
+    <Build Include="TT\TextTemplate1.sql">
+      <DependentUpon>TT\TextTemplate1.tt</DependentUpon>
     </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="T4\AuditingTables.tt" />
-    <None Include="T4\AuditingTriggers.tt" />
-    <None Include="T4\HistoryTables.tt">
+    <None Include="TT\AuditingTables.tt" />
+    <None Include="TT\AuditingTriggers.tt" />
+    <None Include="TT\HistoryTables.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="T4\HistoryTriggers.tt">
+    <None Include="TT\HistoryTriggers.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="T4\ListFunctions.tt" />
-    <None Include="T4\ListViews.tt" />
-    <None Include="T4\TextTemplateSql1.tt" />
-    <None Include="T4\SampleStoredProcedure.tt">
+    <None Include="TT\ListFunctions.tt" />
+    <None Include="TT\ListViews.tt" />
+    <None Include="TT\TextTemplateSql1.tt" />
+    <None Include="TT\SampleStoredProcedure.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="T4\StoredProcedureInsertSample.tt">
+    <None Include="TT\StoredProcedureInsertSample.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="T4\InMemoryDatabaseModelInclude.tt" />
-    <None Include="T4\TextTemplate3.tt">
+    <None Include="TT\InMemoryDatabaseModelInclude.ttinclude" />
+    <None Include="TT\TextTemplate3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
+    <None Include="TT\TemplateFileManagerV2.1.ttinclude" />
+    <None Include="Stored_Procedures\TextTemplate3.txt4" />
   </ItemGroup>
 </Project>
