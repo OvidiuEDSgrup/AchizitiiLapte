@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Achizitii_lapte</Name>
+    <Name>Achizitii_Lapte</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{a115517b-18a8-4bbb-82e2-35ccad254896}</ProjectGuid>
@@ -27,6 +27,7 @@
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
     <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
     <Recovery>SIMPLE</Recovery>
+    <TargetDatabase>Achizitii_Lapte</TargetDatabase>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -102,6 +103,9 @@
     <Build Include="Stored_Procedures\AL_wIaProducatori.sql" />
     <Build Include="TT\TextTemplate1.sql">
       <DependentUpon>TT\TextTemplate1.tt</DependentUpon>
+    </Build>
+    <Build Include="TT\TextTemplate3.sql">
+      <DependentUpon>TT\TextTemplate3.tt</DependentUpon>
     </Build>
   </ItemGroup>
   <ItemGroup>
