@@ -133,7 +133,6 @@
     <None Include="TT\TextTemplate3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="TT\TemplateFileManagerV2.1.ttinclude" />
-    <None Include="Stored_Procedures\TextTemplate3.txt4" />
+    <None Include="TT\TemplateFilemanager.CS.ttinclude" />
   </ItemGroup>
 </Project>

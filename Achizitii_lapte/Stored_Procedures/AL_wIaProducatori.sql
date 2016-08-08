@@ -57,10 +57,10 @@ BEGIN
 --..
 	-- Foreign key relationship cod_tara [dbo].[Tari].cod_tara
 --..
+	-- Foreign key relationship operator [dbo].[utilizatori].ID
+--..
 	-- Foreign key relationship subunit [dbo].[terti].Subunitate
 	-- Foreign key relationship tert [dbo].[terti].Tert
---..
-	-- Foreign key relationship operator [dbo].[utilizatori].ID
 --..
 	
 		
