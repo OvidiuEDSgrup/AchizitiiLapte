@@ -100,10 +100,20 @@
     <Build Include="Tables\AL_Grila_pret_cantitate.sql" />
     <Build Include="Tables\AL_Grupe_producatori.sql" />
     <Build Include="Storage\SYSS.sql" />
-    <Build Include="Stored_Procedures\AL_wIaProducatori.sql" />
     <Build Include="TT\TextTemplate1.sql">
       <DependentUpon>TT\TextTemplate1.tt</DependentUpon>
     </Build>
+    <Build Include="Stored_Procedures\AL_wIaTipuri_lapte.sql" />
+    <Build Include="Stored_Procedures\AL_wIaProducatori.sql" />
+    <Build Include="Stored_Procedures\AL_wIaListe_achizitii.sql" />
+    <Build Include="Stored_Procedures\AL_wIaIndicatori_analiza_Tipuri_lapte.sql" />
+    <Build Include="Stored_Procedures\AL_wIaIndicatori_analiza.sql" />
+    <Build Include="Stored_Procedures\AL_wIaGrupe_producatori.sql" />
+    <Build Include="Stored_Procedures\AL_wIaGrila_bonus_cantitate.sql" />
+    <Build Include="Stored_Procedures\AL_wIaCorectii_pret.sql" />
+    <Build Include="Stored_Procedures\AL_wIaCentre_colectare.sql" />
+    <Build Include="Stored_Procedures\AL_wIaAnalize_achizitii.sql" />
+    <Build Include="Stored_Procedures\AL_wIaAchizitii.sql" />
     <Build Include="TT\TextTemplate3.sql">
       <DependentUpon>TT\TextTemplate3.tt</DependentUpon>
     </Build>
@@ -122,7 +132,6 @@
     </None>
     <None Include="TT\ListFunctions.tt" />
     <None Include="TT\ListViews.tt" />
-    <None Include="TT\TextTemplateSql1.tt" />
     <None Include="TT\SampleStoredProcedure.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
