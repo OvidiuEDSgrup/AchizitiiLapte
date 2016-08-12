@@ -2,6 +2,9 @@
 
 AS
 BEGIN
+	   /*Output Message AL_Liste_achizitii (from GenerateMessage method).*/
+
+
     SELECT
 		AL_Liste_achizitii.id_lista
 		,AL_Liste_achizitii.data_lunii

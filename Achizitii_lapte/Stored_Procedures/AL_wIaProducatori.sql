@@ -2,6 +2,9 @@
 
 AS
 BEGIN
+	   /*Output Message AL_Producatori (from GenerateMessage method).*/
+
+
     SELECT
 		AL_Producatori.id_prod
 		,AL_Producatori.cod_prod

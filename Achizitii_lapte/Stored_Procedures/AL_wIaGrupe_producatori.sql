@@ -2,6 +2,9 @@
 
 AS
 BEGIN
+	   /*Output Message AL_Grupe_producatori (from GenerateMessage method).*/
+
+
     SELECT
 		AL_Grupe_producatori.id_grupa
 		,AL_Grupe_producatori.denumire

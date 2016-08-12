@@ -2,6 +2,9 @@
 
 AS
 BEGIN
+	   /*Output Message AL_Tipuri_lapte (from GenerateMessage method).*/
+
+
     SELECT
 		AL_Tipuri_lapte.id_tip_lapte
 		,AL_Tipuri_lapte.cod_lapte

@@ -143,5 +143,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Include="TT\TemplateFilemanager.CS.ttinclude" />
+    <None Include="TT\TextTemplate1.ttinclude">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="TT\TextTemplate1.txt">
+      <DependentUpon>TT\TextTemplate1.ttinclude</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TT\TextTemplate3.cs">
+      <DependentUpon>TT\TextTemplate3.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

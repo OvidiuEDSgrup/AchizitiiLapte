@@ -2,6 +2,9 @@
 
 AS
 BEGIN
+	   /*Output Message AL_Centre_colectare (from GenerateMessage method).*/
+
+
     SELECT
 		AL_Centre_colectare.id_centru
 		,AL_Centre_colectare.cod_centru

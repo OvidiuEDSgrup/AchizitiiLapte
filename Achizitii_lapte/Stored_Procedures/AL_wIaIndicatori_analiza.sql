@@ -2,6 +2,9 @@
 
 AS
 BEGIN
+	   /*Output Message AL_Indicatori_analiza (from GenerateMessage method).*/
+
+
     SELECT
 		AL_Indicatori_analiza.cod_indicator
 		,AL_Indicatori_analiza.denumire

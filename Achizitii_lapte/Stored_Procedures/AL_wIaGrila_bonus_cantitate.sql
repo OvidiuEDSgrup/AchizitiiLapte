@@ -2,6 +2,9 @@
 
 AS
 BEGIN
+	   /*Output Message AL_Grila_bonus_cantitate (from GenerateMessage method).*/
+
+
     SELECT
 		AL_Grila_bonus_cantitate.id_grila
 		,AL_Grila_bonus_cantitate.id_grupa

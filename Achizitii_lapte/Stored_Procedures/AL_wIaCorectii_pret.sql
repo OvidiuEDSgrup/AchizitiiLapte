@@ -2,6 +2,9 @@
 
 AS
 BEGIN
+	   /*Output Message AL_Corectii_pret (from GenerateMessage method).*/
+
+
     SELECT
 		AL_Corectii_pret.id_corectie
 		,AL_Corectii_pret.id_achizitie
