@@ -133,4 +133,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="id_grupa" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="007ed8f7-9fbf-43f5-bd92-f136585aa8c7" ChangeDateTime="09/12/2016 11:00:52">
+    <Property Name="ElementName" Value="[dbo].[AL_Corectii_pret]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="AL_Corectii_pret_achizitie" />
+  </Operation>
 </Operations>

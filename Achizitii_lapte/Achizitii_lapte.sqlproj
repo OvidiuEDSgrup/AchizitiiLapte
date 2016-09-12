@@ -67,7 +67,7 @@
     <Folder Include="Tables\" />
     <Folder Include="Sequences\" />
     <Folder Include="Scripts\" />
-    <Folder Include="TT" />
+    <Folder Include="T4" />
     <Folder Include="Storage" />
     <Folder Include="Stored_Procedures" />
   </ItemGroup>
@@ -96,11 +96,11 @@
     <Build Include="Tables\AL_Indicatori_analiza_Tipuri_lapte.sql" />
     <Build Include="Sequences\AL_Tipuri_lapte_ID_tip_lapte.sql" />
     <Build Include="Tables\AL_Indicatori_analiza.sql" />
-    <Build Include="Tables\AL_Corectii_pret.sql" />
+    <Build Include="Tables\AL_Corectii_pret_achizitie.sql" />
     <Build Include="Tables\AL_Grila_pret_cantitate.sql" />
     <Build Include="Tables\AL_Grupe_producatori.sql" />
     <Build Include="Storage\SYSS.sql" />
-    <Build Include="TT\TextTemplate1.sql">
+    <Build Include="T4\TextTemplate1.sql">
       <DependentUpon>TT\TextTemplate1.tt</DependentUpon>
     </Build>
     <Build Include="Stored_Procedures\AL_wIaTipuri_lapte.sql" />
@@ -110,44 +110,41 @@
     <Build Include="Stored_Procedures\AL_wIaIndicatori_analiza.sql" />
     <Build Include="Stored_Procedures\AL_wIaGrupe_producatori.sql" />
     <Build Include="Stored_Procedures\AL_wIaGrila_bonus_cantitate.sql" />
-    <Build Include="Stored_Procedures\AL_wIaCorectii_pret.sql" />
     <Build Include="Stored_Procedures\AL_wIaCentre_colectare.sql" />
     <Build Include="Stored_Procedures\AL_wIaAnalize_achizitii.sql" />
     <Build Include="Stored_Procedures\AL_wIaAchizitii.sql" />
-    <Build Include="TT\TextTemplate3.sql">
-      <DependentUpon>TT\TextTemplate3.tt</DependentUpon>
+    <Build Include="Stored_Procedures\AL_wIaCorectii_pret_achizitie.sql" />
+    <Build Include="T4\TextTemplate3.sql">
+      <DependentUpon>T4\TextTemplate3.tt</DependentUpon>
     </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="TT\AuditingTables.tt" />
-    <None Include="TT\AuditingTriggers.tt" />
-    <None Include="TT\HistoryTables.tt">
+    <None Include="T4\AuditingTables.tt" />
+    <None Include="T4\AuditingTriggers.tt" />
+    <None Include="T4\HistoryTables.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="TT\HistoryTriggers.tt">
+    <None Include="T4\HistoryTriggers.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="TT\ListFunctions.tt" />
-    <None Include="TT\ListViews.tt" />
-    <None Include="TT\SampleStoredProcedure.tt">
+    <None Include="T4\ListFunctions.tt" />
+    <None Include="T4\ListViews.tt" />
+    <None Include="T4\SampleStoredProcedure.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="TT\StoredProcedureInsertSample.tt">
+    <None Include="T4\StoredProcedureInsertSample.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="TT\InMemoryDatabaseModelInclude.ttinclude" />
-    <None Include="TT\TextTemplate3.tt">
+    <None Include="T4\InMemoryDatabaseModelInclude.ttinclude" />
+    <None Include="T4\TextTemplate3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="TT\TemplateFilemanager.CS.ttinclude" />
-    <None Include="TT\TextTemplate1.ttinclude">
+    <None Include="T4\TemplateFilemanager.CS.ttinclude" />
+    <None Include="T4\TextTemplate1.ttinclude">
       <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="TT\TextTemplate1.txt">
-      <DependentUpon>TT\TextTemplate1.ttinclude</DependentUpon>
     </None>
   </ItemGroup>
 </Project>

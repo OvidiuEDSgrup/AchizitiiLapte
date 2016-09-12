@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[AL_Corectii_pret]
+﻿CREATE TABLE [dbo].AL_Corectii_pret_achizitie
 (
 	[id_corectie] INT NOT NULL PRIMARY KEY, 
     [id_achizitie] INT NOT NULL, 
