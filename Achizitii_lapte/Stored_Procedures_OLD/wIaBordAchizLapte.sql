@@ -2,6 +2,9 @@
 	@sesiune varchar(50),
 	@parXML xml
 AS
-	SELECT @sesiune, @parXML
+	SELECT TOP (100) * 
+	FROM BordAchizLapte
+	ORDER BY Data_lunii
+	FOR XML RAW
 
 RETURN 0
