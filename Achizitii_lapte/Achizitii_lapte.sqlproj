@@ -70,6 +70,8 @@
     <Folder Include="T4" />
     <Folder Include="Storage" />
     <Folder Include="Stored_Procedures" />
+    <Folder Include="Stored_Procedures_OLD" />
+    <Folder Include="Tables_OLD" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Tari.sql" />
@@ -103,20 +105,11 @@
     <Build Include="T4\TextTemplate1.sql">
       <DependentUpon>TT\TextTemplate1.tt</DependentUpon>
     </Build>
-    <Build Include="Stored_Procedures\AL_wIaTipuri_lapte.sql" />
-    <Build Include="Stored_Procedures\AL_wIaProducatori.sql" />
-    <Build Include="Stored_Procedures\AL_wIaListe_achizitii.sql" />
-    <Build Include="Stored_Procedures\AL_wIaIndicatori_analiza_Tipuri_lapte.sql" />
-    <Build Include="Stored_Procedures\AL_wIaIndicatori_analiza.sql" />
-    <Build Include="Stored_Procedures\AL_wIaGrupe_producatori.sql" />
-    <Build Include="Stored_Procedures\AL_wIaGrila_bonus_cantitate.sql" />
-    <Build Include="Stored_Procedures\AL_wIaCentre_colectare.sql" />
-    <Build Include="Stored_Procedures\AL_wIaAnalize_achizitii.sql" />
-    <Build Include="Stored_Procedures\AL_wIaAchizitii.sql" />
-    <Build Include="Stored_Procedures\AL_wIaCorectii_pret_achizitie.sql" />
-    <Build Include="T4\TextTemplate3.sql">
-      <DependentUpon>T4\TextTemplate3.tt</DependentUpon>
-    </Build>
+    <Build Include="Tables_OLD\BordAchizLapte.sql" />
+    <Build Include="Tables_OLD\BordAnalizaLapte.sql" />
+    <Build Include="Tables_OLD\CorectPretProdCantLapte.sql" />
+    <Build Include="Tables_OLD\GrilaPretCentrColectLapte.sql" />
+    <Build Include="Stored_Procedures_OLD\wIaBordAchizLapte.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
@@ -139,11 +132,11 @@
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Include="T4\InMemoryDatabaseModelInclude.ttinclude" />
-    <None Include="T4\TextTemplate3.tt">
+    <None Include="T4\wIaSPs_GenerateCodeFromTables.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Include="T4\TemplateFilemanager.CS.ttinclude" />
-    <None Include="T4\TextTemplate1.ttinclude">
+    <None Include="T4\wIaSPs_AddCustomCode.ttinclude">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
   </ItemGroup>
