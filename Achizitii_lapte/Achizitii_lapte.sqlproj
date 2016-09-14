@@ -53,6 +53,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunSqlCodeAnalysis>True</RunSqlCodeAnalysis>
+    <SqlCodeAnalysisRules>
+    </SqlCodeAnalysisRules>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -99,7 +102,7 @@
     <Build Include="Sequences\AL_Tipuri_lapte_ID_tip_lapte.sql" />
     <Build Include="Tables\AL_Indicatori_analiza.sql" />
     <Build Include="Tables\AL_Corectii_pret_achizitie.sql" />
-    <Build Include="Tables\AL_Grila_pret_cantitate.sql" />
+    <Build Include="Tables\AL_Grila_bonus_cantitate.sql" />
     <Build Include="Tables\AL_Grupe_producatori.sql" />
     <Build Include="Storage\SYSS.sql" />
     <Build Include="T4\TextTemplate1.sql">
@@ -110,6 +113,7 @@
     <Build Include="Tables_OLD\CorectPretProdCantLapte.sql" />
     <Build Include="Tables_OLD\GrilaPretCentrColectLapte.sql" />
     <Build Include="Stored_Procedures_OLD\wIaBordAchizLapte.sql" />
+    <Build Include="Stored_Procedures_OLD\wIaGrilaPretCentrColectLapte.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
