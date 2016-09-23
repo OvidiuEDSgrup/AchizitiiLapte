@@ -13,7 +13,8 @@
     pret             DECIMAL(12, 5) NOT NULL,
     data_operarii    DATETIME2(3)   NOT NULL,
     operator       VARCHAR(10)  NULL,
-	detalii			XML NULL
+	detalii			XML NULL, 
+    [test] NCHAR(10) NULL
 );
 GO
 CREATE UNIQUE NONCLUSTERED INDEX UQ_AL_Achizitii_ID_lst_ID_prod
