@@ -8,5 +8,6 @@
 				OR perioada=left('Bilunara',(1)) OR perioada=left('Lunara',(1))),
 	id_tip_lapte INT,
 	limita_inf DECIMAL(15,3),
-	limita_sup DECIMAL(15,3)
+	limita_sup DECIMAL(15,3),
+	col_test INT
 )

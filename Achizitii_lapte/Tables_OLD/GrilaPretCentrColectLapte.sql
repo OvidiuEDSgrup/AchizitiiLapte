@@ -9,7 +9,8 @@
     [UM]               CHAR (3)   NOT NULL,
     [Data_operarii]    DATETIME   NOT NULL,
     [Ora_operarii]     CHAR (6)   NOT NULL,
-    [Utilizator]       CHAR (10)  NOT NULL
+    [Utilizator]       CHAR (10)  NOT NULL, 
+    col_teste INT NULL
 );
 
 
