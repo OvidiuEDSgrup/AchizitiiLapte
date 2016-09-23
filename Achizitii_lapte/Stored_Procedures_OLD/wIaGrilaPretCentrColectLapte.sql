@@ -4,5 +4,6 @@
 AS
 	SELECT TOP (100) *
 	FROM GrilaPretCentrColectLapte
+	WHERE 1=1
 	FOR XML RAW
 
